@@ -1,3 +1,4 @@
+# rubocop:disable Lint/UselessAssignment
 module Api
   module V1
     class UserController < ::ApplicationController
@@ -114,3 +115,4 @@ module Api
     end
   end
 end
+# rubocop:enable Lint/UselessAssignment

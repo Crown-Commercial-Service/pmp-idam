@@ -7,7 +7,7 @@
     <%= render partial: 'shared/error_summary', locals: { errors: @result.errors } %>
 
     <%= form_for :anything, url: base_user_session_path(request.parameters), method: :post, html: { specialvalidation: true, novalidate: true, class: 'ccs-form', id: 'cop_sign_in_form'} do |f| %>
-      <div class="govuk-form-group govuk-!-margin-bottom-4 <%= 'govuk-form-group--error' if @result.errors[:email].any? %>">
+      <%= form_group_with_error(@result, :email) do |displayed_error| %>
         <label class="govuk-label govuk-label--m govuk-!-margin-bottom-0" for="email">
           <%=  t('.email_address')%>
         </label>
@@ -15,28 +15,20 @@
           <%= t('.email_hint_html') %>
         </span>
 
-        <span id="email-error" class="govuk-error-message govuk-visually-hidden ccs-e-msg">
-                    <%= t('activemodel.errors.models.ccs_patterns/home/cog_sign_in.attributes.cog_sign_in.please_enter_a_valid_email_address') %>
-        </span>
-        <%= display_error(@result, :email) %>
+        <%= displayed_error %>
         <%=  f.email_field :email, value: "#{ @result.email unless @result.email.nil? }", class:"govuk-input govuk-!-width-two-thirds", id:"email", autocomplete: "off", spellcheck:'false', aria: {describedby: "email-hint"}  %>
-      </div>
+      <% end %>
 
-      <div class="govuk-form-group govuk-!-margin-bottom-7 <%= 'govuk-form-group--error' if @result.errors[:password].any? %>">
+      <%= form_group_with_error(@result, :password) do |displayed_error| %>
         <label class="govuk-label govuk-label--m govuk-!-margin-bottom-0" for="password">
           <%= t('.password') %>
         </label>
 
-        <span id="password-error" class="govuk-error-message govuk-visually-hidden ccs-e-msg">
-                    <%= t('activemodel.errors.models.ccs_patterns/home/cog_sign_in.attributes.cog_sign_in.enter_your_password') %>
-                </span>
-        <%= display_error(@result, :password) %>
+        <%= displayed_error %>
         <%= f.password_field :password, class: "govuk-input govuk-!-width-two-thirds", id: "password", autocomplete: "off" %>
-
-      </div>
-
+      <% end %>
+    
       <%= f.submit t('common.sign_in'), id: "submit", class: "govuk-button govuk-!-padding-left-7 govuk-!-padding-right-7", 'aria-label': "#{t('common.sign_in')}" %>
-
     <% end %>
 
     <p class="govuk-body govuk-!-margin-bottom-7">
