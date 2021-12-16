@@ -9,12 +9,12 @@ module Cognito
 
     validates :confirmation_code, presence: true
 
-    def initialize(email, password, password_confirmation, confirmation_code)
+    def initialize(params = {})
       super()
-      @email = email.try(:downcase)
-      @password = password
-      @password_confirmation = password_confirmation
-      @confirmation_code = confirmation_code
+      @email = params[:email].try(:downcase)
+      @password = params[:password]
+      @password_confirmation = params[:password_confirmation]
+      @confirmation_code = params[:confirmation_code]
     end
 
     def call
@@ -45,9 +45,6 @@ module Cognito
     end
 
     def create_user_if_needed
-      # user = User.find_for_authentication(email: email)
-      # return user if user
-
       resp = CreateUserFromCognito.call(email)
       if resp.success?
         resp.user
