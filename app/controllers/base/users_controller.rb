@@ -2,6 +2,8 @@
 
 module Base
   class UsersController < ApplicationController
+    before_action :assign_email
+
     def confirm_new
       @result = Cognito::ConfirmSignUp.new
     end
@@ -19,10 +21,10 @@ module Base
     end
 
     def resend_confirmation_email
-      result = Cognito::ResendConfirmationCode.call(params[:email])
+      result = Cognito::ResendConfirmationCode.call(@email)
       Rails.logger.info 'ACCOUNT ACTIVATION EMAIL RESENT'
 
-      redirect_to base_users_confirm_path_path(email: params[:email]), error: result.error
+      redirect_to base_users_confirm_path_path(e: params[:e]), error: result.error
     end
 
     private
@@ -32,6 +34,10 @@ module Base
         :confirmation_code,
         :email
       )
+    end
+
+    def assign_email
+      @email = params[:e].present? ? TextEncryptor.decrypt(params[:e]) : confirm_sign_up_params[:email]
     end
   end
 end
