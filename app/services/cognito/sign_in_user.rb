@@ -3,14 +3,14 @@
 module Cognito
   class SignInUser < BaseService
     include ActiveModel::Validations
-    attr_reader :email, :password, :cookies_disabled, :client_id
+    attr_reader :email, :password, :cookies_disabled, :client_id, :redirect_uri
     attr_accessor :error, :needs_password_reset, :needs_confirmation
 
     validates_presence_of :email, :password
     validates :email, format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i }
-    validate :cookies_should_be_enabled
+    validate :cookies_should_be_enabled, :redirect_uri_known
 
-    def initialize(email, password, client_id, cookies_disabled)
+    def initialize(email, password, client_id, cookies_disabled, redirect_uri)
       super()
       @email = email.try(:downcase)
       @password = password
@@ -18,6 +18,7 @@ module Cognito
       @error = nil
       @needs_password_reset = false
       @cookies_disabled = cookies_disabled
+      @redirect_uri = redirect_uri
     end
 
     def call
@@ -74,6 +75,10 @@ module Cognito
 
     def cookies_should_be_enabled
       errors.add(:base, :cookies_disabled) if @cookies_disabled
+    end
+
+    def redirect_uri_known
+      errors.add(:base, :redirect_uri_mismatch) unless ENV['CALLBACK_URLS'].include?(@redirect_uri)
     end
   end
 end
