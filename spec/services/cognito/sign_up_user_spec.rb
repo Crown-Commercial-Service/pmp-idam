@@ -42,7 +42,7 @@ RSpec.describe Cognito::SignUpUser do
 
         it 'has the correct error message' do
           sign_up_user.valid?
-          expect(sign_up_user.errors[:email].first).to eq 'Enter an email address in the correct format, like name@example.com'
+          expect(sign_up_user.errors[:email].first).to eq 'You must enter your email address in the correct format, like name@example.com'
         end
       end
 
@@ -56,6 +56,28 @@ RSpec.describe Cognito::SignUpUser do
         it 'has the correct error message' do
           sign_up_user.valid?
           expect(sign_up_user.errors[:email].first).to eq 'You must use a public sector email'
+        end
+      end
+
+      context 'and it is not in the correct format' do
+        let(:email) { 'Elma' }
+
+        it 'is not valid' do
+          expect(sign_up_user.valid?).to be false
+        end
+
+        it 'has the correct error message' do
+          sign_up_user.valid?
+          expect(sign_up_user.errors[:email].first).to eq 'You must enter your email address in the correct format, like name@example.com'
+        end
+      end
+
+      context 'and the domains contain a dash' do
+        let(:email) { 'elma@blade.xenoblade-x.ca.us' }
+        let(:domain) { 'blade.xenoblade-x.ca.us' }
+
+        it 'is valid' do
+          expect(sign_up_user.valid?).to be true
         end
       end
     end
