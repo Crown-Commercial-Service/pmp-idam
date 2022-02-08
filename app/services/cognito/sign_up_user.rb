@@ -12,6 +12,7 @@ module Cognito
 
     include PasswordValidator
 
+    validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
     validate :domain_in_allow_list, unless: -> { errors[:email].any? }
     validate :organisation_present
     attr_reader :email, :first_name, :last_name, :summary_line, :password, :password_confirmation, :organisation

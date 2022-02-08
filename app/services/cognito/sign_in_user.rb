@@ -7,7 +7,7 @@ module Cognito
     attr_accessor :error, :needs_password_reset, :needs_confirmation
 
     validates_presence_of :email, :password
-    validates :email, format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i }
+    validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
     validate :cookies_should_be_enabled, :redirect_uri_known
 
     def initialize(email, password, client_id, cookies_disabled, redirect_uri)
