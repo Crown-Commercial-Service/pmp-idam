@@ -11,6 +11,14 @@ RSpec.describe Cognito::ForgotPassword do
       end
     end
 
+    context 'and the domains contain a dash' do
+      let(:email) { 'test@digital.cabinet-office.gov.uk' }
+
+      it 'is valid' do
+        expect(forgot_password.valid?).to be true
+      end
+    end
+
     context 'when calling the object' do
       before { forgot_password.call }
 
