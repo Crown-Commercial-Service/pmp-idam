@@ -41,6 +41,14 @@ RSpec.describe Cognito::SignInUser do
           expect(sign_in_user.errors[:email].first).to eq 'You must enter your email address in the correct format, like name@example.com'
         end
       end
+
+      context 'and the domains contain a dash' do
+        let(:email) { 'test@digital.cabinet-office.gov.uk' }
+
+        it 'is valid' do
+          expect(sign_in_user.valid?).to be true
+        end
+      end
     end
 
     context 'when considering the password' do
