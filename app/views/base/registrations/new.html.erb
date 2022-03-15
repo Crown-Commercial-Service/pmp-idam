@@ -46,6 +46,11 @@
           <%= f.label :organisation, t('.organisation'), class: 'govuk-label' %>
           <span id="organisation-hint" class="govuk-hint govuk-!-width-three-quarters">
             <%= t('.organisation_hint') %>
+            <br>
+            <br>
+            <span class="govuk-body">
+              <%= t('.organisation_address_guidance') %>
+            </span>
           </span>
           <%= displayed_error %>
           <div id="selected-autocomplete-option" class="govuk-!-width-three-quarters" <%= "hidden" unless f.object.summary_line.present? %>>
