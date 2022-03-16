@@ -54,9 +54,9 @@ GEM
     activerecord (6.1.5)
       activemodel (= 6.1.5)
       activesupport (= 6.1.5)
-    activerecord-postgis-adapter (6.0.1)
-      activerecord (~> 6.0)
-      rgeo-activerecord (~> 6.0)
+    activerecord-postgis-adapter (7.1.1)
+      activerecord (~> 6.1)
+      rgeo-activerecord (~> 7.0.0)
     activestorage (6.1.5)
       actionpack (= 6.1.5)
       activejob (= 6.1.5)
@@ -224,8 +224,8 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     rexml (3.2.5)
-    rgeo (2.1.1)
-    rgeo-activerecord (6.2.1)
+    rgeo (2.4.0)
+    rgeo-activerecord (7.0.1)
       activerecord (>= 5.0)
       rgeo (>= 1.0.0)
     rollbar (3.0.0)
@@ -321,7 +321,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord-postgis-adapter
+  activerecord-postgis-adapter (~> 7.1.1)
   arask (= 1.2.3)
   aws-sdk-cognitoidentityprovider (~> 1.23.0)
   aws-sdk-s3 (~> 1)
