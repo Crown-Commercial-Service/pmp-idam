@@ -157,6 +157,8 @@ Lint/EmptyFile: # (new in 0.90)
   Enabled: true
 Lint/FloatComparison: # (new in 0.89)
   Enabled: true
+Lint/HashCompareByIdentity: # (new in 0.93)
+  Enabled: true
 Lint/IdentityComparison: # (new in 0.91)
   Enabled: true
 Lint/MissingSuper: # (new in 0.89)
@@ -166,6 +168,8 @@ Lint/MixedRegexpCaptureTypes: # (new in 0.85)
 Lint/OutOfRangeRegexpRef: # (new in 0.89)
   Enabled: true
 Lint/RaiseException: # (new in 0.81)
+  Enabled: true
+Lint/RedundantSafeNavigation: # (new in 0.93)
   Enabled: true
 Lint/SelfAssignment: # (new in 0.89)
   Enabled: true
@@ -188,6 +192,8 @@ Style/ArrayCoercion: # (new in 0.88)
 Style/BisectedAttrAccessor: # (new in 0.87)
   Enabled: true
 Style/CaseLikeIf: # (new in 0.88)
+  Enabled: true
+Style/ClassEqualityComparison: # (new in 0.93)
   Enabled: true
 Style/CombinableLoops: # (new in 0.90)
   Enabled: true
@@ -274,6 +280,8 @@ Rails/RenderPlainText: # (new in 2.7)
 Rails/ShortI18n: # (new in 2.7)
   Enabled: true
 Rails/SquishedSQLHeredocs: # (new in 2.8)
+  Enabled: true
+RSpec/StubbedMock: # (new in 1.44)
   Enabled: true
 Rails/WhereExists: # (new in 2.7)
   Enabled: true
