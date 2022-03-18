@@ -11,6 +11,7 @@ deploy:
   organization: $ORG_NAME
   deployment_strategy: rolling
   space: $SPACE_NAME
+  manifest: manifest.$SPACE_NAME.yaml
   on:
     repo: Crown-Commercial-Service/pmp-idam
     all_branches: true
