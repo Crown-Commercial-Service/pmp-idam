@@ -1,0 +1,15 @@
+---
+# This is an example of what the manifest should look like
+applications:
+- name: APP_NAME
+  memory: 1000M
+  buildpacks:
+  - nodejs_buildpack
+  - ruby_buildpack
+  instances: 1
+  random-route: true
+  services:
+    - DATABASE_SERVICE_NAME
+    - S3_SERVICE_NAME
+  env:
+    SERVER_ENV_NAME: SERVER_ENV_NAME
