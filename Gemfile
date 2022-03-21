@@ -36,7 +36,7 @@ gem 'pg', '~> 1.3.4'
 gem 'jwt'
 gem 'rest-client', '~> 2.1'
 gem 'rollbar'
-gem 'roo', '~> 2.8.3'
+gem 'roo', '~> 2.9.0'
 # remove if not option two taken in project
 
 # For canonical urls
