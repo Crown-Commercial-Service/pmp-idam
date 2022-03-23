@@ -53,7 +53,7 @@
             </span>
           </span>
           <%= displayed_error %>
-          <div id="selected-autocomplete-option" class="govuk-!-width-three-quarters" <%= "hidden" unless f.object.summary_line.present? %>>
+          <div id="selected-autocomplete-option" class="govuk-!-width-three-quarters" <%= html_attributes(hidden: nil) unless f.object.summary_line.present? %>>
             <p class="govuk-body govuk-!-font-weight-regular govuk-tag govuk-tag--green"><strong>Selected option: </strong><span><%= f.object.summary_line %></span></p>
           </div>
           <div id="my-autocomplete-container" class="govuk-!-width-three-quarters">
