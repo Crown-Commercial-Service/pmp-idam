@@ -14,6 +14,7 @@ AllCops:
     - 'tmp/**/*'
     - 'config/puma.rb'
     - 'config/environments/*'
+  NewCops: enable
 Rails:
     Enabled: true
 
