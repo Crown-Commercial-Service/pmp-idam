@@ -56,15 +56,15 @@ module SalesforceImport
     end
 
     def self.csv_path
-      URI.open(ENV['EMAIL_DOMAINS_CSV_BLOB'])
+      URI.parse(ENV['EMAIL_DOMAINS_CSV_BLOB']).open
     end
 
     def self.get_email_domain_row(url)
       {
-        'url': url,
-        'active': true,
-        'created_at': DateTime.current,
-        'updated_at': DateTime.current
+        url: url,
+        active: true,
+        created_at: DateTime.current,
+        updated_at: DateTime.current
       }
     end
   end

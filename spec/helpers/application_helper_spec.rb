@@ -21,7 +21,7 @@ RSpec.describe ApplicationHelper do
       let(:email) { 'test@test.com' }
 
       it 'returns nil' do
-        expect(result).to be nil
+        expect(result).to be_nil
       end
     end
 
@@ -54,6 +54,7 @@ RSpec.describe ApplicationHelper do
     let(:model) { Cognito::ForgotPassword.new('') }
     let(:result) do
       form_group_with_error(model, :email) do
+        nil
       end
     end
 
