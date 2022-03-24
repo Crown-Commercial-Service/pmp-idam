@@ -18,8 +18,8 @@ RSpec.describe Cognito::ConfirmPasswordReset do
   let(:confirmation_code) { '123456' }
 
   describe '.valid?' do
-    let(:valid_symbols_sample) { '=+-^$*.[]{}()?"!@#%&/\\,><\':;|_~`'.split('').sample(5).join }
-    let(:invalid_symbols_sample) { '£èöíäü'.split('').sample(2).join }
+    let(:valid_symbols_sample) { '=+-^$*.[]{}()?"!@#%&/\\,><\':;|_~`'.chars.sample(5).join }
+    let(:invalid_symbols_sample) { '£èöíäü'.chars.sample(2).join }
 
     context 'when all attributes are valid' do
       it 'is valid' do
@@ -76,7 +76,7 @@ RSpec.describe Cognito::ConfirmPasswordReset do
       end
 
       context 'and it cointains valid symbols' do
-        let(:password) { ("Password1234#{valid_symbols_sample}").split('').shuffle.join }
+        let(:password) { "Password1234#{valid_symbols_sample}".chars.shuffle.join }
 
         it 'is valid' do
           expect(confirm_password_reset.valid?).to be true
@@ -84,7 +84,7 @@ RSpec.describe Cognito::ConfirmPasswordReset do
       end
 
       context 'and it contains 1 invalid symbol' do
-        let(:password) { ("Password1234#{valid_symbols_sample}#{invalid_symbols_sample[0]}").split('').shuffle.join }
+        let(:password) { "Password1234#{valid_symbols_sample}#{invalid_symbols_sample[0]}".chars.shuffle.join }
 
         it 'is not valid' do
           expect(confirm_password_reset.valid?).to be false
@@ -97,7 +97,7 @@ RSpec.describe Cognito::ConfirmPasswordReset do
       end
 
       context 'and it contains multiple invalid symbols' do
-        let(:password) { ("Password1234#{valid_symbols_sample}#{invalid_symbols_sample}").split('').shuffle.join }
+        let(:password) { "Password1234#{valid_symbols_sample}#{invalid_symbols_sample}".chars.shuffle.join }
 
         it 'is not valid' do
           expect(confirm_password_reset.valid?).to be false

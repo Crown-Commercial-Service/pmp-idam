@@ -23,8 +23,8 @@ RSpec.describe Cognito::SignUpUser do
   before { AllowedEmailDomain.create(url: domain, active: true) }
 
   describe '.valid?' do
-    let(:valid_symbols_sample) { '=+-^$*.[]{}()?"!@#%&/\\,><\':;|_~`'.split('').sample(7).join }
-    let(:invalid_symbols_sample) { 'èÿüíōæß'.split('').sample(3).join }
+    let(:valid_symbols_sample) { '=+-^$*.[]{}()?"!@#%&/\\,><\':;|_~`'.chars.sample(7).join }
+    let(:invalid_symbols_sample) { 'èÿüíōæß'.chars.sample(3).join }
 
     context 'when all attributes are valid' do
       it 'is valid' do
@@ -221,7 +221,7 @@ RSpec.describe Cognito::SignUpUser do
       end
 
       context 'and it cointains valid symbols' do
-        let(:password) { ("Password1234#{valid_symbols_sample}").split('').shuffle.join }
+        let(:password) { "Password1234#{valid_symbols_sample}".chars.shuffle.join }
 
         it 'is valid' do
           expect(sign_up_user.valid?).to be true
@@ -229,7 +229,7 @@ RSpec.describe Cognito::SignUpUser do
       end
 
       context 'and it contains 1 invalid symbol' do
-        let(:password) { ("Password1234#{valid_symbols_sample}#{invalid_symbols_sample[0]}").split('').shuffle.join }
+        let(:password) { "Password1234#{valid_symbols_sample}#{invalid_symbols_sample[0]}".chars.shuffle.join }
 
         it 'is not valid' do
           expect(sign_up_user.valid?).to be false
@@ -242,7 +242,7 @@ RSpec.describe Cognito::SignUpUser do
       end
 
       context 'and it contains multiple invalid symbols' do
-        let(:password) { ("Password1234#{valid_symbols_sample}#{invalid_symbols_sample}").split('').shuffle.join }
+        let(:password) { "Password1234#{valid_symbols_sample}#{invalid_symbols_sample}".chars.shuffle.join }
 
         it 'is not valid' do
           expect(sign_up_user.valid?).to be false

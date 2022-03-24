@@ -10,8 +10,8 @@ RSpec.describe Cognito::CreateUserFromCognito do
       let(:email) { nil }
 
       it 'sets the email and error as nil' do
-        expect(create_user_from_cognito.email).to be nil
-        expect(create_user_from_cognito.error).to be nil
+        expect(create_user_from_cognito.email).to be_nil
+        expect(create_user_from_cognito.error).to be_nil
       end
     end
 
@@ -20,14 +20,14 @@ RSpec.describe Cognito::CreateUserFromCognito do
 
       it 'converts the email to lowercase and sets error as nil' do
         expect(create_user_from_cognito.email).to eq 'tester@test.com'
-        expect(create_user_from_cognito.error).to be nil
+        expect(create_user_from_cognito.error).to be_nil
       end
     end
 
     context 'when the email contains all lowercase letters' do
       it 'sets the email unchanged and sets error as nil' do
         expect(create_user_from_cognito.email).to eq 'tester@test.com'
-        expect(create_user_from_cognito.error).to be nil
+        expect(create_user_from_cognito.error).to be_nil
       end
     end
   end
@@ -110,7 +110,7 @@ RSpec.describe Cognito::CreateUserFromCognito do
       before { allow(cognito_user).to receive(:user_attributes).and_return([]) }
 
       it 'returns nil' do
-        expect(create_user_from_cognito.send(:cognito_attribute, 'sub')).to be nil
+        expect(create_user_from_cognito.send(:cognito_attribute, 'sub')).to be_nil
       end
     end
   end

@@ -19,7 +19,7 @@ module ApplicationHelper
       content_for(title_bit)
     end
     title += [t('layouts.application.title')]
-    title.reject(&:blank?).map(&:strip).join(': ')
+    title.compact_blank.map(&:strip).join(': ')
   end
 
   def form_group_with_error(model, attribute)

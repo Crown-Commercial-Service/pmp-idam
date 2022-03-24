@@ -14,7 +14,7 @@ RSpec.describe Api::V1::OrganisationController do
       end
 
       it 'returns no_results as false' do
-        expect(result['no_results']).to eq false
+        expect(result['no_results']).to be false
       end
     end
 
@@ -26,7 +26,7 @@ RSpec.describe Api::V1::OrganisationController do
       end
 
       it 'returns no_results as true' do
-        expect(result['no_results']).to eq true
+        expect(result['no_results']).to be true
       end
     end
 
@@ -38,7 +38,7 @@ RSpec.describe Api::V1::OrganisationController do
       end
 
       it 'returns no_results as false' do
-        expect(result['no_results']).to eq false
+        expect(result['no_results']).to be false
       end
     end
 
@@ -50,7 +50,7 @@ RSpec.describe Api::V1::OrganisationController do
       end
 
       it 'returns no_results as true' do
-        expect(result['no_results']).to eq true
+        expect(result['no_results']).to be true
       end
     end
   end
