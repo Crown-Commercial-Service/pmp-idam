@@ -27,7 +27,7 @@ gem 'aws-sdk-s3', '~> 1'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 # For scheduling tasks
-gem 'arask', '1.2.3'
+gem 'arask', '1.2.5'
 
 # for postgresql
 gem 'activerecord-postgis-adapter', '~> 7.1.1'
