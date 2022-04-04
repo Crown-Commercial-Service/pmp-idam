@@ -31,7 +31,7 @@ gem 'arask', '1.2.3'
 
 # for postgresql
 gem 'activerecord-postgis-adapter', '~> 7.1.1'
-gem 'pg', '~> 1.3.4'
+gem 'pg', '~> 1.3.5'
 # remove if not option two taken in project
 gem 'jwt'
 gem 'rest-client', '~> 2.1'
