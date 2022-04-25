@@ -55,7 +55,7 @@ module Api
       end
 
       def get_user_cognito(token)
-        client = Aws::CognitoIdentityProvider::Client.new(region: ENV['COGNITO_AWS_REGION'])
+        client = Aws::CognitoIdentityProvider::Client.new(region: ENV.fetch('COGNITO_AWS_REGION', nil))
         client.get_user({
                           access_token: token
                         })

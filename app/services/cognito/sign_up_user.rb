@@ -47,7 +47,7 @@ module Cognito
 
     def create_cognito_user
       client.sign_up(
-        client_id: ENV['COGNITO_CLIENT_ID'],
+        client_id: ENV.fetch('COGNITO_CLIENT_ID', nil),
         secret_hash: Cognito::Common.build_secret_hash(email),
         username: email,
         password: password,

@@ -28,7 +28,7 @@ module Cognito
     private
 
     def forgot_password
-      client.forgot_password(client_id: ENV['COGNITO_CLIENT_ID'], secret_hash: Cognito::Common.build_secret_hash(email), username: email)
+      client.forgot_password(client_id: ENV.fetch('COGNITO_CLIENT_ID', nil), secret_hash: Cognito::Common.build_secret_hash(email), username: email)
     end
   end
 end
