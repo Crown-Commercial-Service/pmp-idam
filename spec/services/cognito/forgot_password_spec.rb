@@ -88,9 +88,9 @@ RSpec.describe Cognito::ForgotPassword do
       context 'and the error is UserNotFoundException' do
         let(:error) { Aws::CognitoIdentityProvider::Errors::UserNotFoundException }
 
-        it 'sets the error and success will be false' do
-          expect(forgot_password.errors[:base].first).to eq 'Please check the information you have entered'
-          expect(forgot_password.success?).to be false
+        it 'does not set an error and success will be true' do
+          expect(forgot_password.errors.none?).to be true
+          expect(forgot_password.success?).to be true
         end
       end
 

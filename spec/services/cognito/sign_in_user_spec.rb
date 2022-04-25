@@ -107,6 +107,7 @@ RSpec.describe Cognito::SignInUser do
         allow(client).to receive(:describe_user_pool_client).and_return(client_creds)
         allow(client_creds).to receive(:user_pool_client).and_return(user_pool_client)
         allow(user_pool_client).to receive(:explicit_auth_flows).and_return(explicit_auth_flows)
+        allow(sign_in_user).to receive(:sleep)
       end
 
       context 'and the explicit_auth_flows includes "USER_PASSWORD_AUTH"' do

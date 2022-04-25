@@ -47,14 +47,16 @@ module Cognito
     private
 
     def initiate_auth
-      cognito_common = Cognito::Common.new
-      client_creds = cognito_common.get_client_credentials(client_id)
+      go_then_wait do
+        cognito_common = Cognito::Common.new
+        client_creds = cognito_common.get_client_credentials(client_id)
 
-      if client_creds.user_pool_client.explicit_auth_flows.include? 'USER_PASSWORD_AUTH'
-        login_user_cognito(client_creds.user_pool_client.client_id, client_creds.user_pool_client.client_secret)
-      else
-        @error = I18n.t('base.users.sign_in_error')
-        errors.add(:base, @error)
+        if client_creds.user_pool_client.explicit_auth_flows.include? 'USER_PASSWORD_AUTH'
+          login_user_cognito(client_creds.user_pool_client.client_id, client_creds.user_pool_client.client_secret)
+        else
+          @error = I18n.t('base.users.sign_in_error')
+          errors.add(:base, @error)
+        end
       end
     end
 
@@ -76,6 +78,15 @@ module Cognito
 
     def redirect_uri_known
       errors.add(:base, :redirect_uri_mismatch) unless ENV['CALLBACK_URLS'].include?(@redirect_uri)
+    end
+
+    # This should keep the response times for attempting to log in with a fake or valid an account around the same length
+    def go_then_wait
+      finish_time = Time.now.in_time_zone('London') + 2.seconds
+
+      yield
+
+      sleep (finish_time - Time.now.in_time_zone('London')).clamp(0, 2).seconds
     end
   end
 end
