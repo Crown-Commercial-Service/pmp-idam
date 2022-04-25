@@ -15,7 +15,9 @@ module Cognito
 
     def call
       forgot_password if valid?
-    rescue Aws::CognitoIdentityProvider::Errors::UserNotFoundException, Aws::CognitoIdentityProvider::Errors::InvalidParameterException
+    rescue Aws::CognitoIdentityProvider::Errors::UserNotFoundException
+      # We do nothing as we don't want people to be able enumerate users
+    rescue Aws::CognitoIdentityProvider::Errors::InvalidParameterException
       errors.add(:base, :user_not_found)
     rescue Aws::CognitoIdentityProvider::Errors::ServiceError => e
       errors.add(:base, e.message)
