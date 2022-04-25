@@ -103,5 +103,5 @@ Rails.application.configure do
     'X-Content-Type-Options' => 'nosniff'
   }
 
-  application.config.hosts << '.printmarketplace.crowncommercial.gov.uk'
+  config.hosts << '.printmarketplace.crowncommercial.gov.uk'
 end
