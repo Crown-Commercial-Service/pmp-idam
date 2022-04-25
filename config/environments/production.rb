@@ -102,4 +102,6 @@ Rails.application.configure do
     'X-XSS-Protection' => '1; mode=block',
     'X-Content-Type-Options' => 'nosniff'
   }
+
+  application.config.hosts << '.printmarketplace.crowncommercial.gov.uk'
 end
