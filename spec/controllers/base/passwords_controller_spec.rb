@@ -95,7 +95,7 @@ RSpec.describe Base::PasswordsController do
     end
 
     context 'when the reset password is valid' do
-      let(:password) { 'Password12345!' }
+      let(:password) { generate_random_valid_password }
 
       it 'redirects to the home page' do
         expect(response).to redirect_to home_path

@@ -60,6 +60,7 @@ en:
               blank: Enter a password
               invalid_no_capitals: Password must include a capital letter
               invalid_no_number: Password must include a number
+              invalid_pwned: Enter a password that is harder to guess
               invalid_symbol: Your password includes invalid symbols
               too_short: The password you entered is not long enough, it needs to be at least 10 characters long
             password_confirmation:
@@ -115,6 +116,7 @@ en:
               blank: Enter a password
               invalid_no_capitals: Password must include a capital letter
               invalid_no_number: Password must include a number
+              invalid_pwned: Enter a password that is harder to guess
               invalid_symbol: Your password includes invalid symbols
               too_short: The password you entered is not long enough, it needs to be at least 10 characters long
             password_confirmation:

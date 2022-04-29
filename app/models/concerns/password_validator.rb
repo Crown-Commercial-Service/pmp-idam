@@ -8,7 +8,7 @@ module PasswordValidator
 
     validates :password, format: { with: /(?=.*[A-Z])/, message: :invalid_no_capitals }
     validates :password, format: { with: /(?=.*[0-9])/, message: :invalid_no_number }
-    validate :validate_symbols
+    validate :validate_symbols, :validate_password_not_pwned
   end
 
   private
@@ -21,5 +21,11 @@ module PasswordValidator
     return if password_symbols.blank?
 
     errors.add(:password, :invalid_symbol) unless password_symbols.match?(VALID_SYMBOLS)
+  end
+
+  def validate_password_not_pwned
+    return if errors.any?(:password) || errors.any?(:password_confirmation)
+
+    errors.add(:password, :invalid_pwned) if PwnedPassword.password_pwned?(password)
   end
 end
