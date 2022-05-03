@@ -57,6 +57,6 @@ module PmpIdam
   end
 
   def self.google_analytics_id
-    @google_analytics_id ||= ENV['GOOGLE_ANALYTICS_ID']
+    @google_analytics_id ||= ENV.fetch('GOOGLE_ANALYTICS_ID', nil)
   end
 end
