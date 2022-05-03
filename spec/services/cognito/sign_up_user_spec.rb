@@ -339,13 +339,25 @@ RSpec.describe Cognito::SignUpUser do
 
     context 'when an error is raised' do
       before do
-        allow(client).to receive(:sign_up).and_raise(Aws::CognitoIdentityProvider::Errors::ServiceError.new('Some context', 'Some message'))
+        allow(client).to receive(:sign_up).and_raise(error.new('Some context', 'Some message'))
         sign_up_user.call
       end
 
-      it 'sets the error and success will be false' do
-        expect(sign_up_user.errors[:base].first).to eq 'Some message'
-        expect(sign_up_user.success?).to be false
+      context 'and the error is generic' do
+        let(:error) { Aws::CognitoIdentityProvider::Errors::ServiceError }
+
+        it 'sets the error and success will be false' do
+          expect(sign_up_user.errors[:base].first).to eq 'Some message'
+          expect(sign_up_user.success?).to be false
+        end
+      end
+
+      context 'and the error is UsernameExistsException' do
+        let(:error) { Aws::CognitoIdentityProvider::Errors::UsernameExistsException }
+
+        it 'success will be true' do
+          expect(sign_up_user.success?).to be true
+        end
       end
     end
   end
