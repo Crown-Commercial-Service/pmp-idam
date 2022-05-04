@@ -23,9 +23,6 @@ RSpec.describe Cognito::SignUpUser do
   before { AllowedEmailDomain.create(url: domain, active: true) }
 
   describe '.valid?' do
-    let(:valid_symbols_sample) { '=+-^$*.[]{}()?"!@#%&/\\,><\':;|_~`'.chars.sample(7).join }
-    let(:invalid_symbols_sample) { 'èÿüíōæß'.chars.sample(3).join }
-
     context 'when all attributes are valid' do
       it 'is valid' do
         expect(sign_up_user.valid?).to be true
@@ -221,28 +218,15 @@ RSpec.describe Cognito::SignUpUser do
       end
 
       context 'and it cointains valid symbols' do
-        let(:password) { "Password1234#{valid_symbols_sample}".chars.shuffle.join }
+        let(:password) { generate_random_valid_password }
 
         it 'is valid' do
           expect(sign_up_user.valid?).to be true
         end
       end
 
-      context 'and it contains 1 invalid symbol' do
-        let(:password) { "Password1234#{valid_symbols_sample}#{invalid_symbols_sample[0]}".chars.shuffle.join }
-
-        it 'is not valid' do
-          expect(sign_up_user.valid?).to be false
-        end
-
-        it 'has the correct error message' do
-          sign_up_user.valid?
-          expect(sign_up_user.errors[:password].first).to eq 'Your password includes invalid symbols'
-        end
-      end
-
-      context 'and it contains multiple invalid symbols' do
-        let(:password) { "Password1234#{valid_symbols_sample}#{invalid_symbols_sample}".chars.shuffle.join }
+      context 'and it contains invalid symbols' do
+        let(:password) { generate_random_invalid_password }
 
         it 'is not valid' do
           expect(sign_up_user.valid?).to be false
@@ -264,6 +248,19 @@ RSpec.describe Cognito::SignUpUser do
         it 'has the correct error message' do
           sign_up_user.valid?
           expect(sign_up_user.errors[:password].first).to eq 'The password you entered is not long enough, it needs to be at least 10 characters long'
+        end
+      end
+
+      context 'and it has been pwned' do
+        let(:password) { PwnedPassword.all.pluck(:password).sample }
+
+        it 'is not valid' do
+          expect(sign_up_user.valid?).to be false
+        end
+
+        it 'has the correct error message' do
+          sign_up_user.valid?
+          expect(sign_up_user.errors[:password].first).to eq 'Enter a password that is harder to guess'
         end
       end
     end
@@ -339,13 +336,25 @@ RSpec.describe Cognito::SignUpUser do
 
     context 'when an error is raised' do
       before do
-        allow(client).to receive(:sign_up).and_raise(Aws::CognitoIdentityProvider::Errors::ServiceError.new('Some context', 'Some message'))
+        allow(client).to receive(:sign_up).and_raise(error.new('Some context', 'Some message'))
         sign_up_user.call
       end
 
-      it 'sets the error and success will be false' do
-        expect(sign_up_user.errors[:base].first).to eq 'Some message'
-        expect(sign_up_user.success?).to be false
+      context 'and the error is generic' do
+        let(:error) { Aws::CognitoIdentityProvider::Errors::ServiceError }
+
+        it 'sets the error and success will be false' do
+          expect(sign_up_user.errors[:base].first).to eq 'Some message'
+          expect(sign_up_user.success?).to be false
+        end
+      end
+
+      context 'and the error is UsernameExistsException' do
+        let(:error) { Aws::CognitoIdentityProvider::Errors::UsernameExistsException }
+
+        it 'success will be true' do
+          expect(sign_up_user.success?).to be true
+        end
       end
     end
   end

@@ -34,7 +34,7 @@ module PmpIdam
 
     config.before_configuration do
       begin
-        vcap_services = JSON.parse(ENV['VCAP_SERVICES'])
+        vcap_services = JSON.parse(ENV.fetch('VCAP_SERVICES', nil))
         ENV['CCS_DEFAULT_DB_HOST'] = vcap_services['postgres'][0]['credentials']['host'].to_s
         ENV['CCS_DEFAULT_DB_PORT'] = vcap_services['postgres'][0]['credentials']['port'].to_s
         ENV['CCS_DEFAULT_DB_NAME'] = vcap_services['postgres'][0]['credentials']['name'].to_s
@@ -57,6 +57,6 @@ module PmpIdam
   end
 
   def self.google_analytics_id
-    @google_analytics_id ||= ENV['GOOGLE_ANALYTICS_ID']
+    @google_analytics_id ||= ENV.fetch('GOOGLE_ANALYTICS_ID', nil)
   end
 end

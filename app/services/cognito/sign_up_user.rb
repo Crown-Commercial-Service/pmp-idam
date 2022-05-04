@@ -35,6 +35,8 @@ module Cognito
         resp = create_cognito_user
         @cognito_uuid = resp['user_sub']
       end
+    rescue Aws::CognitoIdentityProvider::Errors::UsernameExistsException
+      # We do nothing as we don't want people to be able enumerate users
     rescue Aws::CognitoIdentityProvider::Errors::ServiceError => e
       errors.add(:base, e.message)
     end
@@ -47,7 +49,7 @@ module Cognito
 
     def create_cognito_user
       client.sign_up(
-        client_id: ENV['COGNITO_CLIENT_ID'],
+        client_id: ENV.fetch('COGNITO_CLIENT_ID', nil),
         secret_hash: Cognito::Common.build_secret_hash(email),
         username: email,
         password: password,
