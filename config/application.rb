@@ -41,15 +41,8 @@ module PmpIdam
         ENV['CCS_DEFAULT_DB_USER'] = vcap_services['postgres'][0]['credentials']['username'].to_s
         ENV['CCS_DEFAULT_DB_PASSWORD'] = vcap_services['postgres'][0]['credentials']['password'].to_s
 
-        allowed_domains = ['.printmarketplace.crowncommercial.gov.uk']
-
         vcap_application = JSON.parse(ENV.fetch('VCAP_APPLICATION', nil))
-
-        vcap_application['application_uris'].each do |application_uri|
-          allowed_domains << application_uri unless application_uri.end_with? 'crowncommercial.gov.uk'
-        end
-
-        ENV['ALLOWED_HOST_DOMAINS'] = allowed_domains.join(',').to_s
+        ENV['ALLOWED_HOST_DOMAINS'] = vcap_application['application_uris'].join(',').to_s
       rescue StandardError
         # Rails.logger.debug e
       end
