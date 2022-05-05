@@ -103,15 +103,7 @@ Rails.application.configure do
     'X-Content-Type-Options' => 'nosniff'
   }
 
-  config.hosts << '.printmarketplace.crowncommercial.gov.uk'
-
-  begin
-    vcap_application = JSON.parse(ENV.fetch('VCAP_APPLICATION', nil))
-
-    vcap_application['application_uris'].each do |application_uri|
-      config.hosts << application_uri if application_uri.ends_with? 'london.cloudapps.digital'
-    end
-  rescue StandardError => e
-    Rails.logger.debug e
+  ENV.fetch('ALLOWED_HOST_DOMAINS', []).split(',').each do |application_domain|
+    config.hosts << application_domain
   end
 end
