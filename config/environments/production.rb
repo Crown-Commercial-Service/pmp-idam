@@ -104,4 +104,5 @@ Rails.application.configure do
   }
 
   config.hosts << '.printmarketplace.crowncommercial.gov.uk'
+  config.hosts << ENV.fetch('GPASS_GENERATED_DOMAIN')
 end
