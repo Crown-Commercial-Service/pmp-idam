@@ -103,5 +103,7 @@ Rails.application.configure do
     'X-Content-Type-Options' => 'nosniff'
   }
 
-  config.hosts << '.printmarketplace.crowncommercial.gov.uk'
+  ENV.fetch('ALLOWED_HOST_DOMAINS', []).split(',').each do |application_domain|
+    config.hosts << application_domain
+  end
 end

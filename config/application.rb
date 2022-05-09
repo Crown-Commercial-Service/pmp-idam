@@ -40,6 +40,9 @@ module PmpIdam
         ENV['CCS_DEFAULT_DB_NAME'] = vcap_services['postgres'][0]['credentials']['name'].to_s
         ENV['CCS_DEFAULT_DB_USER'] = vcap_services['postgres'][0]['credentials']['username'].to_s
         ENV['CCS_DEFAULT_DB_PASSWORD'] = vcap_services['postgres'][0]['credentials']['password'].to_s
+
+        vcap_application = JSON.parse(ENV.fetch('VCAP_APPLICATION', nil))
+        ENV['ALLOWED_HOST_DOMAINS'] = vcap_application['application_uris'].join(',').to_s
       rescue StandardError
         # Rails.logger.debug e
       end
