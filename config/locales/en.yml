@@ -341,6 +341,11 @@ en:
   layouts:
     application:
       title: Crown Commercial Services
+    contact_us:
+      contact_us: Contact us (opens in a new tab)
+      contact_us_link: https://www.crowncommercial.gov.uk/contact
+      having_problems: Having problems with this service?
+      support_html: "%{link} for support."
     cookie-banner:
       accept_all_cookies: Accept all cookies
       cookies_acepted_html: You’ve accepted all cookies. You can %{cookies_acepted_link} at any time.
@@ -356,14 +361,9 @@ en:
       cookie_settings_link_aria_label: View and change your cookie settings
       crown_commercial_service_logo: The Crown Commercial Service logo
       crown_copyright: "© Crown copyright"
-      email: info@crowncommercial.gov.uk
-      email_aria_label: Email us for support with this service
-      email_or_call_html: Email %{email} or call %{phone} for support.
-      having_problems_with_this_service: Having problems with this service?
       privacy_link: https://www.gov.uk/government/publications/crown-commercial-service-privacy-notice/crown-commercial-service-privacy-notice
       privacy_link_aria_label: View our privacy policy
       privacy_link_text: Privacy policy
-      telephone: 0345 410 2222
   shared:
     error_summary:
       there_is_a_problem: There is a problem
