@@ -3,10 +3,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.5'
+ruby '2.7.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.1.5', '>= 6.1.5.1'
+gem 'rails', '~> 6.1.6', '>= 6.1.6.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
@@ -20,7 +20,7 @@ gem 'jbuilder', '~> 2.11', '>= 2.11.5'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 # for cognito
-gem 'aws-sdk-cognitoidentityprovider', '~> 1.65.0'
+gem 'aws-sdk-cognitoidentityprovider', '~> 1.67.0'
 # importing creds
 gem 'aws-sdk-s3', '~> 1'
 # Reduces boot times through caching; required in config/boot.rb
@@ -31,7 +31,7 @@ gem 'arask', '1.2.3'
 
 # for postgresql
 gem 'activerecord-postgis-adapter', '~> 7.1.1'
-gem 'pg', '~> 1.3.5'
+gem 'pg', '~> 1.4.1'
 # remove if not option two taken in project
 gem 'jwt'
 gem 'rest-client', '~> 2.1'
