@@ -24,10 +24,17 @@
   <%= javascript_pack_tag 'application' %>
 
   <meta property="og:image" content="<%= asset_pack_url('media/images/govuk-opengraph-image.png') %>">
+
+  <% if cookies[:pmp_google_analytics_enabled] == 'true' %>
+    <%= render partial: '/shared/google/analytics' if PmpIdam.google_analytics_tracking_id.present? %>
+    <%= render partial: '/shared/google/tag_manager_head' if PmpIdam.google_tag_manager_tracking_id.present? %>
+  <% end %>
+
   <%= canonical_tag %>
 </head>
 
 <body class="govuk-template__body app-body-class error-box" data-test="My value" data-other="report:details">
+  <%= render partial: '/shared/google/tag_manager_body' if cookies[:pmp_google_analytics_enabled] == 'true' && PmpIdam.google_tag_manager_tracking_id.present? %>
   <script>
     document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
   </script>
