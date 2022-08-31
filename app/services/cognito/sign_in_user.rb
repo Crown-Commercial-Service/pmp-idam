@@ -82,11 +82,13 @@ module Cognito
 
     # This should keep the response times for attempting to log in with a fake or valid an account around the same length
     def go_then_wait
-      finish_time = Time.now.in_time_zone('London') + 2.seconds
+      finish_time = Time.now.in_time_zone('London') + MINIMUM_WAIT_TIME.second
 
       yield
-
-      sleep (finish_time - Time.now.in_time_zone('London')).clamp(0, 2).seconds
+    ensure
+      sleep (finish_time - Time.now.in_time_zone('London')).clamp(0, MINIMUM_WAIT_TIME).seconds
     end
+
+    MINIMUM_WAIT_TIME = 1
   end
 end
