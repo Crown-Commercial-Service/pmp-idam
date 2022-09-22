@@ -58,7 +58,7 @@ module PwnedPasswords
     if Rails.env.test?
       passwords = []
 
-      File.open(Rails.root.join('data/test_pwned_passwords.json'), 'r') do |file|
+      Rails.root.join('data/test_pwned_passwords.json').open('r') do |file|
         passwords = JSON.parse(file.read)
       end
 
