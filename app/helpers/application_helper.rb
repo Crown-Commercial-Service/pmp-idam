@@ -35,4 +35,12 @@ module ApplicationHelper
   def parameters_without_user_details
     request.parameters.except(:cognito_sign_in_user)
   end
+
+  def cookie_preferences_settings
+    @cookie_preferences_settings ||= begin
+      current_cookie_preferences = JSON.parse(cookies[PmpIdam.cookie_settings_name] || '{}')
+
+      current_cookie_preferences.empty? ? PmpIdam.default_cookie_options : current_cookie_preferences
+    end
+  end
 end
