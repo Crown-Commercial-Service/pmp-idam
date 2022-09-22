@@ -25,16 +25,15 @@
 
   <meta property="og:image" content="<%= asset_pack_url('media/images/govuk-opengraph-image.png') %>">
 
-  <% if cookies[:pmp_google_analytics_enabled] == 'true' %>
-    <%= render partial: '/shared/google/analytics' if PmpIdam.google_analytics_tracking_id.present? %>
-    <%= render partial: '/shared/google/tag_manager_head' if PmpIdam.google_tag_manager_tracking_id.present? %>
-  <% end %>
+  <%= render partial: '/shared/google/analytics' if cookie_preferences_settings['google_analytics_enabled'] && PmpIdam.google_analytics_tracking_id.present? %>
+  <%= render partial: '/shared/google/tag_manager_head' if PmpIdam.google_tag_manager_tracking_id.present? %>
 
   <%= canonical_tag %>
 </head>
 
 <body class="govuk-template__body app-body-class error-box" data-test="My value" data-other="report:details">
-  <%= render partial: '/shared/google/tag_manager_body' if cookies[:pmp_google_analytics_enabled] == 'true' && PmpIdam.google_tag_manager_tracking_id.present? %>
+  <%= render partial: '/shared/google/tag_manager_body' if PmpIdam.google_tag_manager_tracking_id.present? %>
+
   <script>
     document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
   </script>
@@ -42,12 +41,8 @@
   <div class="error-content">
     <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
 
-    <header id="main-header" class="govuk-header" role="banner" data-module="header">
-      <%# render partial: '/layouts/cookie-banner' %>
-      <div class="govuk-header__container govuk-width-container">
-        <%= render partial: '/layouts/header-banner', locals: {end_of_journey: false} %>
-      </div>
-    </header>
+    <%= render partial: '/layouts/cookie-banner' unless cookie_preferences_settings['settings_viewed'] || controller.action_name == 'cookie_settings' %>
+    <%= render partial: '/layouts/header-banner' %>
 
     <div class="govuk-width-container app-width-container--wide">
       <!--a href="<%# base_new_user_session_path %>" class="govuk-back-link">Back</a -->
