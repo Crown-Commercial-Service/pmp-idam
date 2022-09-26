@@ -2,8 +2,8 @@ const removeGACookies = (formData, successFunction) => {
   let success = false;
 
   $.ajax({
-    type: 'PUT',
-    url: '/cookie-settings',
+    type: 'GET',
+    url: '/cookie-settings/update',
     data: formData,
     dataType: 'json',
     success() {
