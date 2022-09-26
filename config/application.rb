@@ -66,4 +66,16 @@ module PmpIdam
   def self.google_tag_manager_tracking_id
     @google_tag_manager_tracking_id ||= ENV.fetch('GTM_TRACKING_ID', nil)
   end
+
+  def self.cookie_settings_name
+    :pmp_cookie_options_v1
+  end
+
+  def self.default_cookie_options
+    {
+      settings_viewed: false,
+      google_analytics_enabled: false,
+      glassbox_enabled: false
+    }.stringify_keys
+  end
 end
