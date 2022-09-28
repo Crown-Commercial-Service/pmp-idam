@@ -274,32 +274,37 @@ en:
       change_settings_html: You can %{change_settings_link}.
       change_settings_link_text: change which cookies you’re happy for us to use
       change_your_settings: Change your settings
-      cookie_message_1:
-        expires: 1 year
-        name: pmp_google_analytics_enabled
-        purpose: Saves your cookie consent settings for Google Analytics
-      cookie_message_2:
-        expires: 1 year
-        name: pmp_cookie_settings_viewed
-        purpose: Lets us know that you’ve viewed your cookie consent settings
-      cookies_message: Cookies message
-      ga_cookies_1:
-        expires: 2 years
-        name: _ga
-        purpose: This cookie allows Google to track unique users via a client identifier that is randomly generated
-      ga_cookies_2:
-        expires: 10 minutes
-        name: _gat
-        purpose: This cookie is used to monitor and track visitors’ behaviour on the site anonymously
-      ga_cookies_3:
-        expires: 24 hours
-        name: _gid
-        purpose: This cookie is used to group the user behaviour
+      cookie_banner_cookies:
+        row_1:
+          expires: 1 year
+          purpose: Saves your cookie consent preferences
+      cookies_banner: Cookies banner
+      ga_cookies:
+        row_1:
+          expires: 400 days
+          name: _ga
+          purpose: This cookie allows Google to track unique users via a client identifier that is randomly generated
+        row_2:
+          expires: 10 minutes
+          name: _gat
+          purpose: This cookie is used to monitor and track visitors’ behaviour on the site anonymously
+        row_3:
+          expires: 24 hours
+          name: _gid
+          purpose: This cookie is used to group the user behaviour
       ga_sets_following_cookies: Google Analytics sets the following cookies.
+      glassbox_cookies:
+        row_1:
+          expires: 2 years
+          name: _cls_s
+          purpose: The session identifying cookie. It also indicates if the visitor is new or existing
+        row_2:
+          expires: 2 years
+          name: _cls_v
+          purpose: The visitor identifying cookie
+      glassbox_sets_following_cookies: 'Glassbox sets the following cookies:'
       heading: Details about cookies on Print Marketplace
-      last_updated: Last updated 9 August 2022
-      we_also_use: We also use Google Tag Manager, but this does not set any cookies.
-      we_do_not_let: We do not allow Google to use or share the data about how you use this site.
+      last_updated: Last updated 22 September 2022.
       what_are_cookies: Print Marketplace puts small files (known as ‘cookies’) onto your computer to collect information about how you browse the site. Find out more about the cookies we use, what they’re for and when they expire.
       you_may_see_a_banner: You may see a banner when you visit Print Marketplace inviting you to accept cookies or review your settings. We’ll set cookies so that your computer knows you’ve seen it and not to show it again, and also to store your settings.
     cookie_settings:
@@ -307,26 +312,48 @@ en:
       cookie_settings: Cookie settings
       cookies_saved: Your cookie settings were saved
       cookies_saved_description: Other areas of the Print Marketplace service may set additional cookies and, if so, will have their own cookie policy and banner.
-      dont_use_cookies: Do not use cookies that measure my website use
+      dont_use_cookies:
+        ga: Do not use cookies that measure my website use (Google Analytics)
+        glassbox: Do not use cookies that measure my website use (Glassbox)
       essential_cookies: These essential cookies do things like remember the notifications you have seen so we do not show them to you again.
       find_out_more: Find out more about cookies on Print Marketplace
       heading: Cookies on Print Marketplace
       save_changes: Save changes
       the_number_we_use: We use 2 types of cookie. You can choose which cookies you're happy for us to use.
-      use_cookies: Use cookies that measure my website use
+      use_cookies:
+        ga: Use cookies that measure my website use (Google Analytics)
+        glassbox: Use cookies that measure my website use (Glassbox)
       what_are_cookies: Cookies are files saved on your phone, tablet or computer when you visit a website.
       why_we_use_them: We use cookies to store information about how you use the Print Marketplace website, such as the pages you visit.
     cookies:
       expires: Expires
-      ga_list: 'Google Analytics sets cookies that store anonymised information about:'
-      ga_list_1: how you got to the site
-      ga_list_2: the pages you visit on Print Marketplace, and how long you spend on each page
-      ga_list_3: what you click on while you're visiting the site
-      measure_website_use: Cookies that measure website use
+      measure_website_use:
+        ga: Measuring website usage (Google Analytics)
+        glassbox: Measuring website usage (Glassbox)
+        title: Cookies that measure website use
       name: Name
       purpose: Purpose
       strictly_necessary_cookies: Strictly necessary cookies
-      we_use_ga: We use Google Analytics to measure how you use the website so we can improve it based on user needs.
+    ga_cookies_info:
+      ga_list:
+        item_1: the pages you visit on Print Marketplace
+        item_2: how long you spend on each Print Marketplace page
+        item_3: how you got to the site
+        item_4: what you click on while you’re visiting the site
+        title: 'Google Analytics stores information about:'
+      we_dont_allow: We don’t allow Google to use or share our analytics data.
+      we_dont_collect: We don’t collect or store your personal information (eg your name or address) so this information can’t be used to identify who you are.
+      we_use_ga: We use Google Analytics software to collect information about how you use Print Marketplace. We do this to help make sure the site is meeting the needs of its users and to help us make improvements, eg improving site search.
+    glassbox_cookies_info:
+      glassbox_list:
+        item_1: Browsing activity
+        item_2: Click-stream activity
+        item_3: Session heatmaps
+        item_4: Scrolls
+        title: 'Glassbox stores information about:'
+      we_dont_allow: We don’t allow Glassbox to use or share our analytics data.
+      we_dont_collect: We don’t collect or store your personal information (e.g. your name or address) so this information can’t be used to identify who you are.
+      we_use_glassbox: We use Glassbox software to collect information about how you use Print Marketplace. We do this to help make sure the site is meeting the needs of its users and to help us make improvements.
     index:
       authorised_customer_list: authorised customer list
       authorised_customer_list_link: https://assets.crowncommercial.gov.uk/wp-content/uploads/RM3788-Contract-Notice-Authorised-Customer-List.docx
@@ -348,11 +375,16 @@ en:
       having_problems: Having problems with this service?
       support_html: "%{link} for support."
     cookie-banner:
-      accept_all_cookies: Accept all cookies
-      cookies_acepted_html: You’ve accepted all cookies. You can %{cookies_acepted_link} at any time.
-      cookies_acepted_link_text: change your cookie settings
-      set_cookie_preferences: Set cookie preferences
-      why_we_use_cookies: We use cookies to collect information about how you use printmarketplace.crowncommercial.gov.uk. We use this information to make the website work as well as possible and improve government services.
+      accept_cookies: Accept analytics cookies
+      change_cookie_settings_html: You can %{cookie_settings_link} at any time.
+      change_cookie_settings_link: change your cookie settings
+      cookies_accepted: You’ve accepted all analytics cookies.
+      cookies_on_crown_marketplace: Cookies on Print Marketplace
+      cookies_rejected: You’ve rejected all analytics cookies.
+      reject_cookies: Reject analytics cookies
+      view_cookies: View cookies
+      we_use_some_analytics_cookies: We’d also like to use analytics cookies so we can understand how you use the service and make improvements.
+      we_use_some_essential_cookies: We use some essential cookies to make this service work.
     footer:
       accessibility_statement_link: Accessibility statement
       accessibility_statement_link_aria_label: View our accessibility statement

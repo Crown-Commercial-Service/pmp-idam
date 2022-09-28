@@ -1,51 +1,67 @@
-import Cookies from 'js-cookie';
+const removeGACookies = (formData, successFunction) => {
+  let success = false;
 
-const removeGACookies = () => {
-  const cookieList = Object.keys(Cookies.get());
-  const gaCookieList = [];
-  const cookiePrefixes = ['_ga', '_gi', '_cls'];
-
-  for (let i = 0; i < cookieList.length; i++) {
-    const cookieName = cookieList[i];
-
-    if (cookiePrefixes.some((cookiePrefix) => cookieName.startsWith(cookiePrefix))) gaCookieList.push(cookieName);
-  }
-
-  gaCookieList.forEach((cookieName) => Cookies.remove(cookieName, { path: '/', domain: '.crowncommercial.gov.uk' }));
+  $.ajax({
+    type: 'GET',
+    url: '/cookie-settings/update',
+    data: formData,
+    dataType: 'json',
+    success() {
+      success = true;
+    },
+    complete() {
+      if (success) successFunction();
+    },
+  });
 };
 
-const updateBanner = (isAccepeted, $newBanner) => {
-  Cookies.set('pmp_cookie_settings_viewed', 'true', { expires: 365 });
-  Cookies.set('pmp_google_analytics_enabled', isAccepeted, { expires: 365 });
+const cookiesSaved = () => {
+  $('#cookie-settings-saved').show();
+  $('html, body').animate({ scrollTop: $('#cookie-settings-saved').offset().top }, 'slow');
+};
+
+const cookieSettingsViewed = ($newBanner) => {
   $('#cookie-options-container').hide();
   $newBanner.show();
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-  if (Cookies.get('pmp_cookie_settings_viewed') === 'true') $('#cookie-consent-container').hide();
-  if (Cookies.get('pmp_google_analytics_enabled') !== 'true') removeGACookies();
-});
+const updateBanner = (isAccepeted, $newBanner) => {
+  removeGACookies(
+    {
+      ga_cookie_usage: isAccepeted,
+      glassbox_cookie_usage: isAccepeted,
+    },
+    cookieSettingsViewed.bind(null, $newBanner),
+  );
+};
 
 $(() => {
-  $('#accept-all-cookies').on('click', (e) => {
-    e.preventDefault();
+  const obsoleteCookies = ['pmp_cookie_settings_viewed', 'pmp_google_analytics_enabled'];
 
-    updateBanner('true', $('#cookies-accepted-container'));
+  obsoleteCookies.forEach((cookieName) => {
+    if (document.cookie.includes(`${cookieName}=`)) document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
   });
 
-  $('#update-cookie-setings').on('submit', (event) => {
+  $('[name="cookies"]').on('click', (event) => {
     event.preventDefault();
 
-    Cookies.set('pmp_cookie_settings_viewed', 'true', { expires: 365 });
+    const buttonValue = event.currentTarget.value;
 
-    if ($('input[name=ga_cookie_usage]:checked').val() === 'true') {
-      Cookies.set('pmp_google_analytics_enabled', 'true', { expires: 365 });
-    } else {
-      Cookies.remove('pmp_google_analytics_enabled');
-      removeGACookies();
-    }
+    updateBanner(buttonValue === 'accept', $(`#cookies-${buttonValue}ed-container`));
+  });
+
+  const $form = $('#update-cookie-setings');
+
+  $form.on('submit', (event) => {
+    event.preventDefault();
 
     $('#cookie-settings-saved').show();
-    $('html, body').animate({ scrollTop: $('#cookie-settings-saved').offset().top }, 'slow');
+
+    const formData = Object.fromEntries($form.serializeArray().map((element) => [element.name, element.value]));
+
+    removeGACookies(
+      formData,
+      cookiesSaved,
+    );
   });
 });
