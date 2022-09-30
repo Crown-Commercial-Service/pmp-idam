@@ -1,3 +1,41 @@
+import Cookies from "js-cookie";
+
+const cookieUpdateOptions = [
+  {
+    cookieName: 'google_analytics_enabled',
+    cookiePrefixes: ['_ga', '_gi'],
+  },
+  {
+    cookieName: 'glassbox_enabled',
+    cookiePrefixes: ['_cls'],
+  },
+];
+
+const getCookiePreferences = () => {
+  const defaultCookieSettings = '{"google_analytics_enabled":true,"glassbox_enabled":false}';
+
+  return JSON.parse(Cookies.get('crown_marketplace_cookie_options_v1') || defaultCookieSettings);
+};
+
+const removeUnwantedCookies = () => {
+  const cookieList = Object.keys(Cookies.get());
+  const cookiesToRemove = ['pmp_cookie_settings_viewed', 'pmp_google_analytics_enabled'];
+  const cookiePreferences = getCookiePreferences();
+  const cookiePrefixes = [];
+
+  cookieUpdateOptions.forEach((cookieUpdateOption) => {
+    if (!cookiePreferences[cookieUpdateOption.cookieName]) cookiePrefixes.push(...cookieUpdateOption.cookiePrefixes);
+  });
+
+  for (let i = 0; i < cookieList.length; i++) {
+    const cookieName = cookieList[i];
+
+    if (cookiePrefixes.some((cookiePrefix) => cookieName.startsWith(cookiePrefix))) cookiesToRemove.push(cookieName);
+  }
+
+  cookiesToRemove.forEach((cookieName) => Cookies.remove(cookieName, { path: '/', domain: '.crowncommercial.gov.uk' }));
+};
+
 const removeGACookies = (formData, successFunction) => {
   let success = false;
 
@@ -36,11 +74,7 @@ const updateBanner = (isAccepeted, $newBanner) => {
 };
 
 $(() => {
-  const obsoleteCookies = ['pmp_cookie_settings_viewed', 'pmp_google_analytics_enabled'];
-
-  obsoleteCookies.forEach((cookieName) => {
-    if (document.cookie.includes(`${cookieName}=`)) document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-  });
+  removeUnwantedCookies();
 
   $('[name="cookies"]').on('click', (event) => {
     event.preventDefault();
