@@ -51,12 +51,12 @@ gem 'rack-attack'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'dotenv-rails', '>= 2.7.6'
-  gem 'i18n-tasks', '>= 1.0.9'
+  gem 'dotenv-rails', '>= 2.8.1'
+  gem 'i18n-tasks', '>= 1.0.12'
   gem 'rspec-rails', '>= 5.1.2'
   gem 'rubocop', '>= 0.91.1'
   gem 'rubocop-performance', '>= 1.8.1'
-  gem 'rubocop-rails', '>= 2.8.1'
+  gem 'rubocop-rails', '>= 2.16.1'
   gem 'rubocop-rspec', '>= 1.43.2' # or gem 'rubocop-minitest'
   gem 'brakeman'
   gem 'pry-rails'
