@@ -43,7 +43,7 @@ gem 'roo', '~> 2.9.0'
 gem 'canonical-rails', github: 'jumph4x/canonical-rails'
 
 # For environment variables
-gem 'vault'
+gem 'aws-sdk-ssm'
 
 # Add rate limiting on the API
 gem 'rack-attack'
