@@ -13,7 +13,7 @@ module PasswordValidator
 
   private
 
-  VALID_SYMBOLS = %r{^[=+\-\^$*.\[\]{}()?"!@\#%&/\\,><':;|_~`]+$}.freeze
+  VALID_SYMBOLS = %r{^[=+-\^$*.\[\]{}()?"!@\#%&/\\,><':;|_~`]+$}.freeze
 
   def validate_symbols
     password_symbols = password.delete('0-9a-zA-Z')
