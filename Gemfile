@@ -6,7 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.1.7'
+gem 'rails', '~> 6.1.7', '>= 6.1.7.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.6'
 # Use Puma as the app server
@@ -56,7 +56,7 @@ group :development, :test do
   gem 'rspec-rails', '>= 6.0.1'
   gem 'rubocop', '>= 0.91.1'
   gem 'rubocop-performance', '>= 1.8.1'
-  gem 'rubocop-rails', '>= 2.16.1'
+  gem 'rubocop-rails', '>= 2.17.3'
   gem 'rubocop-rspec', '>= 1.43.2' # or gem 'rubocop-minitest'
   gem 'brakeman'
   gem 'pry-rails'
