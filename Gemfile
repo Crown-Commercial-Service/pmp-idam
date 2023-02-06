@@ -12,7 +12,7 @@ gem 'sqlite3', '~> 1.6'
 # Use Puma as the app server
 gem 'puma', '~> 6.0'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.4', '>= 5.4.3'
+gem 'webpacker', '~> 5.4'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 # gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
