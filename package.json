@@ -3,7 +3,7 @@
   "private": true,
   "dependencies": {
     "@rails/ujs": "^7.0.4",
-    "@rails/webpacker": "5.4.3",
+    "@rails/webpacker": "5.4.4",
     "accessible-autocomplete": "^2.0.4",
     "govuk-frontend": "^4.5.0",
     "jquery": "^3.6.3",
