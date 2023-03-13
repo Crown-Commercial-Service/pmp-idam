@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::OrganisationController do
   describe 'GET search' do
-    let(:result) { JSON.parse(response.body) }
+    let(:result) { response.parsed_body }
 
     before { get :search, params: { search: search } }
 
