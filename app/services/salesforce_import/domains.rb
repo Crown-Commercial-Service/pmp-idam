@@ -61,7 +61,7 @@ module SalesforceImport
 
     def self.get_email_domain_row(url)
       {
-        url: url,
+        url: url.downcase,
         active: true,
         created_at: DateTime.current,
         updated_at: DateTime.current
