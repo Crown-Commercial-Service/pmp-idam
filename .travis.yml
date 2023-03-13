@@ -16,6 +16,11 @@ deploy:
     repo: Crown-Commercial-Service/pmp-idam
     all_branches: true
     condition: $DEPLOY_BRANCH = TRUE
+branches:
+  only:
+    - develop
+    - staging
+    - main
 env:
   global:
     - RAILS_ENV=test
