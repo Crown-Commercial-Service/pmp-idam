@@ -1,7 +1,7 @@
 dist: bionic
 language: ruby
 rvm:
- — 2.7.6
+ — 2.7.7
 deploy:
   edge: true
   provider: cloudfoundry
