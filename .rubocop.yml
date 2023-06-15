@@ -3,6 +3,8 @@ require:
   - rubocop-rails
   - rubocop-rspec # or rubocop-minitest
 AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.0
   Exclude:
     - 'db/**/*'
     - 'script/**/*'
@@ -14,7 +16,7 @@ AllCops:
     - 'tmp/**/*'
     - 'config/puma.rb'
     - 'config/environments/*'
-  NewCops: enable
+
 Rails:
     Enabled: true
 
