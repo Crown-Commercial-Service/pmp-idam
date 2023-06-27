@@ -2,15 +2,15 @@
   "name": "pmp_idam",
   "private": true,
   "dependencies": {
-    "@rails/ujs": "^7.0.4",
+    "@rails/ujs": "^7.0.5",
     "@rails/webpacker": "5.4.4",
     "accessible-autocomplete": "^2.0.4",
-    "govuk-frontend": "^4.5.0",
-    "jquery": "^3.6.4",
-    "js-cookie": "^3.0.1"
+    "govuk-frontend": "^4.6.0",
+    "jquery": "^3.7.0",
+    "js-cookie": "^3.0.5"
   },
   "version": "0.1.0",
   "devDependencies": {
-    "webpack-dev-server": "^4.11.1"
+    "webpack-dev-server": "^4.15.1"
   }
 }

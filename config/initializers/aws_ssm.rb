@@ -1,6 +1,6 @@
 require 'rollbar'
 
-IDAM_SSM_SERVICE_NAME_REGEX = /pmp-idam-[a-z-]+-ssm-service/.freeze
+IDAM_SSM_SERVICE_NAME_REGEX = /pmp-idam-[a-z-]+-ssm-service/
 
 def config_aws_ssm
   ssm_client = setup_ssm_client

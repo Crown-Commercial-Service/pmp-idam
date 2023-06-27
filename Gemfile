@@ -3,14 +3,14 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.6'
+ruby '3.0.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.1.7', '>= 6.1.7.2'
+gem 'rails', '~> 6.1.7'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.6'
 # Use Puma as the app server
-gem 'puma', '~> 6.1'
+gem 'puma', '~> 6.2'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 5.4', '>= 5.4.4'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -31,7 +31,7 @@ gem 'arask', '1.2.3'
 
 # for postgresql
 gem 'activerecord-postgis-adapter', '~> 7.1.1'
-gem 'pg', '~> 1.4.6'
+gem 'pg', '~> 1.5.3'
 # remove if not option two taken in project
 gem 'jwt'
 gem 'rest-client', '~> 2.1'
