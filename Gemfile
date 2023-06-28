@@ -6,7 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.0.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.1.7'
+gem 'rails', '~> 6.1.7', '>= 6.1.7.4'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.6'
 # Use Puma as the app server
@@ -27,7 +27,7 @@ gem 'aws-sdk-s3', '~> 1'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 # For scheduling tasks
-gem 'arask', '1.2.3'
+gem 'arask', '1.2.4'
 
 # for postgresql
 gem 'activerecord-postgis-adapter', '~> 7.1.1'
@@ -53,7 +53,7 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails', '>= 2.8.1'
   gem 'i18n-tasks', '>= 1.0.12'
-  gem 'rspec-rails', '>= 6.0.1'
+  gem 'rspec-rails', '>= 6.0.2'
   gem 'rubocop', '>= 0.91.1'
   gem 'rubocop-performance', '>= 1.8.1'
   gem 'rubocop-rails', '>= 2.18.0'
