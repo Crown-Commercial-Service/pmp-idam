@@ -6,11 +6,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.0.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.1.7'
+gem 'rails', '~> 6.1.7', '>= 6.1.7.5'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.6'
 # Use Puma as the app server
-gem 'puma', '~> 6.2'
+gem 'puma', '~> 6.3', '>= 6.3.1'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 5.4', '>= 5.4.4'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -27,10 +27,10 @@ gem 'aws-sdk-s3', '~> 1'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 # For scheduling tasks
-gem 'arask', '1.2.3'
+gem 'arask', '1.2.4'
 
 # for postgresql
-gem 'activerecord-postgis-adapter', '~> 7.1.1'
+gem 'activerecord-postgis-adapter', '~> 8.0.0'
 gem 'pg', '~> 1.5.3'
 # remove if not option two taken in project
 gem 'jwt'
@@ -53,10 +53,10 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails', '>= 2.8.1'
   gem 'i18n-tasks', '>= 1.0.12'
-  gem 'rspec-rails', '>= 6.0.1'
+  gem 'rspec-rails', '>= 6.0.2'
   gem 'rubocop', '>= 0.91.1'
   gem 'rubocop-performance', '>= 1.8.1'
-  gem 'rubocop-rails', '>= 2.18.0'
+  gem 'rubocop-rails', '>= 2.20.0'
   gem 'rubocop-rspec', '>= 1.43.2' # or gem 'rubocop-minitest'
   gem 'brakeman'
   gem 'pry-rails'
