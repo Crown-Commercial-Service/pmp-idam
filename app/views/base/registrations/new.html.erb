@@ -15,43 +15,41 @@
         </legend>
 
         <%= form_group_with_error(f.object, :email) do |displayed_error, any_errors| %>
-          <%= f.label :email, t('.email'), class: 'govuk-label' %>
-          <span id="email-hint" class="govuk-hint govuk-!-width-three-quarters">
+          <%= f.label :email, t('.email'), class: 'govuk-label govuk-label--m' %>
+          <div id="email-hint" class="govuk-hint govuk-!-width-three-quarters">
             <%= t('.email_hint') %>
-          </span>
+          </div>
           <%= displayed_error %>
           <%= f.email_field :email, autofocus: true, autocomplete: "off", class:"govuk-input govuk-!-width-three-quarters #{'govuk-input--error' if any_errors}", spellcheck: false, required: true, aria: { describedby: "email-hint" } %>
         <% end %>
 
         <%= form_group_with_error(f.object, :first_name) do |displayed_error, any_errors| %>
-          <%= f.label :first_name, t('.first_name'), class: 'govuk-label' %>
-          <span id="first_name-hint" class="govuk-hint govuk-!-width-three-quarters">
+          <%= f.label :first_name, t('.first_name'), class: 'govuk-label govuk-label--m' %>
+          <div id="first_name-hint" class="govuk-hint govuk-!-width-three-quarters">
             <%= t('.first_name_hint') %>
-          </span>
+          </div>
           <%= displayed_error %>
           <%= f.text_field :first_name, class:"govuk-input govuk-!-width-three-quarters #{'govuk-input--error' if any_errors}", spellcheck: false, required: true, aria: { describedby: "first_name-hint" } %>
         <% end %>
 
         <%= form_group_with_error(f.object, :last_name) do |displayed_error, any_errors| %>
-          <%= f.label :last_name, t('.last_name'), class: 'govuk-label' %>
-          <span id="last_name-hint" class="govuk-hint govuk-!-width-three-quarters">
+          <%= f.label :last_name, t('.last_name'), class: 'govuk-label govuk-label--m' %>
+          <div id="last_name-hint" class="govuk-hint govuk-!-width-three-quarters">
             <%= t('.last_name_hint') %>
-          </span>
+          </div>
           <%= displayed_error %>
           <%= f.text_field :last_name, class:"govuk-input govuk-!-width-three-quarters #{'govuk-input--error' if any_errors}", spellcheck: false, required: true, aria: { describedby: "last_name-hint" } %>
         <% end %>
 
         <%= form_group_with_error(f.object, :summary_line) do |displayed_error| %>
           <%= f.hidden_field :summary_line %>
-          <%= f.label :organisation, t('.organisation'), class: 'govuk-label' %>
-          <span id="organisation-hint" class="govuk-hint govuk-!-width-three-quarters">
+          <%= f.label :organisation, t('.organisation'), class: 'govuk-label govuk-label--m' %>
+          <div id="organisation-hint" class="govuk-hint govuk-!-width-three-quarters">
             <%= t('.organisation_hint') %>
-            <br>
-            <br>
-            <span class="govuk-body-s">
+            <p class="govuk-body govuk-!-margin-top-2">
               <%= t('.organisation_address_guidance') %>
-            </span>
-          </span>
+            </p>
+          </div>
           <%= displayed_error %>
           <div id="selected-autocomplete-option" class="govuk-!-width-three-quarters" <%= "hidden" unless f.object.summary_line.present? %>>
             <p class="govuk-body govuk-!-font-weight-regular govuk-tag govuk-tag--green"><strong>Selected option: </strong><span><%= f.object.summary_line %></span></p>
@@ -71,13 +69,13 @@
         <%= render '/layouts/password-strength', password_id: "#{f.object_name}_password" %>
 
         <%= form_group_with_error(f.object, :password) do |displayed_error, any_errors| %>
-          <%= f.label :password, t('.password'), class: 'govuk-label' %>
+          <%= f.label :password, t('.password'), class: 'govuk-label govuk-label--m' %>
           <%= displayed_error %>
           <%= f.password_field :password, autocomplete: "off", class: "govuk-input govuk-!-width-three-quarters #{'govuk-input--error' if any_errors}", aria: { describedby: 'password-strength passeight passcap passnum' } %>
         <% end %>
 
         <%= form_group_with_error(f.object, :password_confirmation) do |displayed_error, any_errors| %>
-          <%= f.label :password_confirmation, t('.confirm_password'), class: 'govuk-label' %>
+          <%= f.label :password_confirmation, t('.confirm_password'), class: 'govuk-label govuk-label--m' %>
           <%= displayed_error %>
           <%= f.password_field :password_confirmation, autocomplete: "off", class: "govuk-input govuk-!-width-three-quarters #{'govuk-input--error' if any_errors}"  %>
         <% end %>

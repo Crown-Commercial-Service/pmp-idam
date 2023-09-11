@@ -1,0 +1,24 @@
+$ccs-brand-colour: #9b1a47 !default;
+$ccs-canvas-background-colour: #2f2f2f !default;
+$ccs-border-colour: #b1b4b6;
+
+$ccs-colours: (
+  "red": #9b1a47,
+  "dark-red": #85163d,
+  "white": #ffffff,
+
+  "mid-grey": #b1b4b6,
+  "black": #2f2f2f
+);
+
+@function ccs-colour($colour) {
+  $colour: quote($colour);
+
+  @if not map-has-key($ccs-colours, $colour) {
+    @error "Unknown colour `#{$colour}`";
+  }
+
+  @return map-get($ccs-colours, $colour);
+}
+
+@import "components/all";

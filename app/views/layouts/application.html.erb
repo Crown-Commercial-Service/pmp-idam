@@ -30,7 +30,7 @@
   <%= canonical_tag %>
 </head>
 
-<body class="govuk-template__body app-body-class" data-test="My value" data-other="report:details">
+<body class="govuk-template__body">
   <%= render partial: '/shared/google/tag_manager_body' if PmpIdam.google_tag_manager_tracking_id.present? %>
 
   <%= javascript_tag nonce: true do -%>
@@ -49,9 +49,7 @@
       </main>
     </div>
 
-    <footer id="main-footer" class="govuk-footer" role="contentinfo">
-      <%= render partial: '/layouts/footer' %>
-    </footer>
+    <%= render partial: '/layouts/footer' %>
   </div>
 
   <%= javascript_pack_tag 'govuk', 'data-turbolinks-track': 'reload' %>

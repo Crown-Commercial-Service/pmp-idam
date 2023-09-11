@@ -1,30 +1,36 @@
 <%= render partial: '/layouts/contact_us' %>
-<div class="govuk-footer__container govuk-width-container">
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-one-third">
-      <span class="govuk-footer__logotype">
-        <%= render partial: '/layouts/logotype', locals: { alt_tex: t('.crown_commercial_service_logo') } %>
-      </span>
-    </div>
 
-    <nav class="govuk-grid-column-two-thirds" aria-label="Footer navigation">
-      <div class="govuk-footer__meta">
-        <div class="govuk-footer__meta-item">
-          <%= link_to t('.cookie_policy_link'), cookie_policy_path, class: 'ccs-footer__links ccs-no-print', aria: { label: t('.cookie_policy_link_aria_label') } %>
+<footer class="ccs-footer" role="contentinfo">
+  <div class="govuk-width-container">
+    <div class="ccs-footer__meta">
+      <div class="ccs-footer__meta-item">
+        <div class="ccs-footer__logo">
+           <%= render partial: '/layouts/logo' %>
         </div>
-        <div class="govuk-footer__meta-item">
-          <%= link_to t('.cookie_settings_link'), cookie_settings_path, class: 'ccs-footer__links ccs-no-print', aria: { label: t('.cookie_settings_link_aria_label') } %>
-        </div>
-        <div class="govuk-footer__meta-item">
-          <%= link_to t('.privacy_link_text'), t('.privacy_link'), class: 'ccs-footer__links ccs-no-print', aria: { label: t('.privacy_link_aria_label') }, target: '_blank' %>
-        </div>
-        <div class="govuk-footer__meta-item">
-          <%= link_to t('.accessibility_statement_link'), accessibility_statement_path, class: 'ccs-footer__links ccs-no-print', aria: { label: t('.accessibility_statement_link_aria_label') } %>
-        </div>
-        <div class="govuk-footer__meta-item">
-          <%= t('.crown_copyright') %>
+        <div class="ccs-footer__copyright">
+          <a
+            class="ccs-footer__link"
+            href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+          >© Crown copyright</a>
         </div>
       </div>
-    </nav>
+      <div class="ccs-footer__meta-item ccs-footer__meta-item--grow">
+        <h2 class="govuk-visually-hidden">Support links</h2>
+        <ul class="ccs-footer__inline-list ccs-footer__inline-list--botto">
+          <li class="ccs-footer__inline-list-item">
+            <%= link_to t('.cookie_policy_link'), cookie_policy_path, class: 'ccs-footer__link', aria: { label: t('.cookie_policy_link_aria_label') } %>
+          </li>
+          <li class="ccs-footer__inline-list-item">
+            <%= link_to t('.cookie_settings_link'), cookie_settings_path, class: 'ccs-footer__link', aria: { label: t('.cookie_settings_link_aria_label') } %>
+          </li>
+          <li class="ccs-footer__inline-list-item">
+            <%= link_to t('.privacy_link_text'), t('.privacy_link'), class: 'ccs-footer__link', aria: { label: t('.privacy_link_aria_label') }, target: '_blank' %>
+          </li>
+          <li class="ccs-footer__inline-list-item">
+          <%= link_to t('.accessibility_statement_link'), accessibility_statement_path, class: 'ccs-footer__link', aria: { label: t('.accessibility_statement_link_aria_label') } %>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
-</div>
+</footer>

@@ -14,10 +14,10 @@
 
     <%= form_with model: @response, url: base_users_password_path,  html: { novalidate: true }, local: true, method: :post do |f| %>
       <%= form_group_with_error(f.object, :email) do |displayed_error, any_errors| %>
-        <%= f.label :email, t('.email'), class: 'govuk-label govuk-label--m govuk-!-margin-bottom-0' %>
-        <span id="email-hint" class="govuk-hint govuk-!-width-three-quarters">
+        <%= f.label :email, t('.email'), class: 'govuk-label govuk-label--m' %>
+        <div id="email-hint" class="govuk-hint govuk-!-width-three-quarters">
           <%= t('.email_hint_html') %>
-        </span>
+        </div>
         <%= displayed_error %>
         <%= f.email_field :email, autocomplete: "off", class:"govuk-input govuk-!-width-three-quarters #{'govuk-input--error' if any_errors}", spellcheck: false, required: true, aria: { describedby: "email-hint" } %>
       <% end %>

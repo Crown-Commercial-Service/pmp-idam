@@ -33,19 +33,19 @@
       <%= render '/layouts/password-strength', password_id: "#{f.object_name}_password" %>
 
       <%= form_group_with_error(f.object, :password) do |displayed_error, any_errors| %>
-        <%= f.label :password, t('.new_password'), class: 'govuk-label' %>
+        <%= f.label :password, t('.new_password'), class: 'govuk-label govuk-label--m' %>
         <%= displayed_error %>
         <%= f.password_field :password, autocomplete: "off", class: "govuk-input govuk-!-width-three-quarters #{'govuk-input--error' if any_errors}", aria: { describedby: 'password-strength passeight passcap passnum' } %>
       <% end %>
 
       <%= form_group_with_error(f.object, :password_confirmation) do |displayed_error, any_errors| %>
-        <%= f.label :password_confirmation, t('.confirm_new_password'), class: 'govuk-label' %>
+        <%= f.label :password_confirmation, t('.confirm_new_password'), class: 'govuk-label govuk-label--m' %>
         <%= displayed_error %>
         <%= f.password_field :password_confirmation, autocomplete: "off", class: "govuk-input govuk-!-width-three-quarters #{'govuk-input--error' if any_errors}"  %>
       <% end %>
 
       <%= form_group_with_error(f.object, :confirmation_code) do |displayed_error, any_errors| %>
-        <%= f.label :confirmation_code, t('.verify_code'), class: 'govuk-label' %>
+        <%= f.label :confirmation_code, t('.verify_code'), class: 'govuk-label govuk-label--m' %>
         <%= displayed_error %>
         <%= f.text_field :confirmation_code, autocomplete: "off", class: "govuk-input govuk-!-width-three-quarters #{'govuk-input--error' if any_errors}", maxlength: 6  %>
       <% end %>

@@ -13,7 +13,7 @@
 
     <%= form_with model: @result, url: base_users_confirm_path(e: params[:e]),  html: { novalidate: true }, local: true, method: :post do |f| %>
       <%= form_group_with_error(f.object, :confirmation_code) do |displayed_error, any_errors| %>
-        <%= f.label :confirmation_code, t('.confirmation_code'), class: 'govuk-label govuk-!-margin-bottom-0' %>
+        <%= f.label :confirmation_code, t('.confirmation_code'), class: 'govuk-label govuk-label--m' %>
         <%= displayed_error %>
         <%= f.text_field :confirmation_code, class: "govuk-input govuk-input--width-10 #{'govuk-input--error' if any_errors}", type: 'number' %>
       <% end %>
@@ -22,7 +22,7 @@
         <%= f.hidden_field :email, value: @email %>
       <% else %>
         <%= form_group_with_error(f.object, :email) do |displayed_error, any_errors| %>
-          <%= f.label :email, t('.email'), class: 'govuk-label govuk-!-margin-bottom-0' %>
+          <%= f.label :email, t('.email'), class: 'govuk-label govuk-label--m' %>
           <%= displayed_error %>
           <%= f.text_field :email, class: "govuk-input govuk-input--width-20 #{'govuk-input--error' if any_errors}" %>
         <% end %>
