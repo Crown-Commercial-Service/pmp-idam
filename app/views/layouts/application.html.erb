@@ -25,7 +25,6 @@
 
   <meta property="og:image" content="<%= asset_pack_url('media/images/govuk-opengraph-image.png') %>">
 
-  <%= render partial: '/shared/google/analytics' if cookie_preferences_settings['google_analytics_enabled'] && PmpIdam.google_analytics_tracking_id.present? %>
   <%= render partial: '/shared/google/tag_manager_head' if PmpIdam.google_tag_manager_tracking_id.present? %>
 
   <%= canonical_tag %>
