@@ -5,10 +5,10 @@ RSpec.describe Cognito::ConfirmPasswordReset do
 
   let(:params) do
     {
-      email: email,
-      password: password,
-      password_confirmation: password_confirmation,
-      confirmation_code: confirmation_code
+      email:,
+      password:,
+      password_confirmation:,
+      confirmation_code:
     }
   end
 
