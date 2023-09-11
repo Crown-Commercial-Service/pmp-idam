@@ -5,8 +5,8 @@ RSpec.describe Cognito::ConfirmSignUp do
 
   let(:params) do
     {
-      email: email,
-      confirmation_code: confirmation_code
+      email:,
+      confirmation_code:
     }
   end
 
