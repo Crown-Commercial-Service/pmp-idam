@@ -6,7 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.0.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.1.7'
+gem 'rails', '~> 7.0.8'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.6'
 # Use Puma as the app server
@@ -30,7 +30,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'arask', '1.2.3'
 
 # for postgresql
-gem 'activerecord-postgis-adapter', '~> 7.1.1'
+gem 'activerecord-postgis-adapter', '~> 8.0.2'
 gem 'pg', '~> 1.5.3'
 # remove if not option two taken in project
 gem 'jwt'
