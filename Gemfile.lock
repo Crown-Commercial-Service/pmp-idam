@@ -343,7 +343,7 @@ GEM
       unf_ext
     unf_ext (0.0.7.7)
     unicode-display_width (2.4.2)
-    web-console (4.2.0)
+    web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
@@ -393,7 +393,7 @@ DEPENDENCIES
   spring (~> 4.1.1)
   spring-watcher-listen (~> 2.1.0)
   sqlite3 (~> 1.6)
-  web-console (~> 4.2.0, >= 4.2.0)
+  web-console (~> 4.2.1)
   webpacker (~> 5.4, >= 5.4.4)
 
 RUBY VERSION
