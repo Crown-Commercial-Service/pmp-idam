@@ -46,7 +46,7 @@ gem 'canonical-rails', github: 'jumph4x/canonical-rails'
 gem 'aws-sdk-ssm', '~> 1.156.0'
 
 # Add rate limiting on the API
-gem 'rack-attack', '~> 6.6.1'
+gem 'rack-attack', '~> 6.7.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
