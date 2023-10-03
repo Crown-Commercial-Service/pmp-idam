@@ -20,7 +20,7 @@ gem 'jbuilder', '~> 2.11', '>= 2.11.5'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 # for cognito
-gem 'aws-sdk-cognitoidentityprovider', '~> 1.81.0'
+gem 'aws-sdk-cognitoidentityprovider', '~> 1.82.0'
 # importing creds
 gem 'aws-sdk-s3', '~> 1'
 # Reduces boot times through caching; required in config/boot.rb
@@ -43,7 +43,7 @@ gem 'roo', '~> 2.10.0'
 gem 'canonical-rails', github: 'jumph4x/canonical-rails'
 
 # For environment variables
-gem 'aws-sdk-ssm', '~> 1.156.0'
+gem 'aws-sdk-ssm', '~> 1.158.0'
 
 # Add rate limiting on the API
 gem 'rack-attack', '~> 6.7.0'
@@ -54,7 +54,7 @@ group :development, :test do
   gem 'dotenv-rails', '~> 2.8.1', '>= 2.8.1'
   gem 'i18n-tasks', '~> 1.0.12', '>= 1.0.12'
   gem 'rspec-rails', '~> 6.0.3', '>= 6.0.3'
-  gem 'rubocop', '~> 1.52.1', '>= 1.52.1'
+  gem 'rubocop', '~> 1.56.4'
   gem 'rubocop-performance', '~> 1.19.1'
   gem 'rubocop-rails', '~> 2.21.2'
   gem 'rubocop-rspec', '~> 2.22.0', '>= 1.43.2' # or gem 'rubocop-minitest'

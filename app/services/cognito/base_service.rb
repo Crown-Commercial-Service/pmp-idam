@@ -5,8 +5,8 @@ module Cognito
     attr_accessor :error
 
     # Use Class.call(args) rather than Class.new(args).call
-    def self.call(*args, &)
-      resp = new(*args, &)
+    def self.call(*, &)
+      resp = new(*, &)
       resp.call
       resp
     end
