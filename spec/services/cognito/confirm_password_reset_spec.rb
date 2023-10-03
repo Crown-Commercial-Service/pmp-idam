@@ -107,7 +107,7 @@ RSpec.describe Cognito::ConfirmPasswordReset do
       end
 
       context 'and it has been pwned' do
-        let(:password) { PwnedPassword.all.pluck(:password).sample }
+        let(:password) { PwnedPassword.pluck(:password).sample }
 
         it 'is not valid' do
           expect(confirm_password_reset.valid?).to be false

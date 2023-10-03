@@ -252,7 +252,7 @@ RSpec.describe Cognito::SignUpUser do
       end
 
       context 'and it has been pwned' do
-        let(:password) { PwnedPassword.all.pluck(:password).sample }
+        let(:password) { PwnedPassword.pluck(:password).sample }
 
         it 'is not valid' do
           expect(sign_up_user.valid?).to be false
