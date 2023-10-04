@@ -11,7 +11,7 @@ Rails.application.configure do
     policy.img_src     :self, :https, :data, 'https://*.google-analytics.com', 'https://*.googletagmanager.com'
     policy.object_src  :none
     policy.script_src  :self, :https, 'https://*.googletagmanager.com'
-    policy.style_src   :self, :https
+    policy.style_src   :self, "'unsafe-inline'", :https
     policy.connect_src :self, :https, 'https://*.google-analytics.com', 'https://*.analytics.google.com', 'https://*.googletagmanager.com'
     # Specify URI for violation reports
     # policy.report_uri "/csp-violation-report-endpoint"
