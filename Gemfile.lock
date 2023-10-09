@@ -64,7 +64,7 @@ GEM
     activerecord (7.0.8)
       activemodel (= 7.0.8)
       activesupport (= 7.0.8)
-    activerecord-postgis-adapter (8.0.2)
+    activerecord-postgis-adapter (8.0.3)
       activerecord (~> 7.0.0)
       rgeo-activerecord (~> 7.0.0)
     activestorage (7.0.8)
@@ -366,7 +366,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord-postgis-adapter (~> 8.0.2)
+  activerecord-postgis-adapter (~> 8.0.3)
   arask (~> 1.2.3)
   aws-sdk-cognitoidentityprovider (~> 1.82.0)
   aws-sdk-s3 (~> 1)
