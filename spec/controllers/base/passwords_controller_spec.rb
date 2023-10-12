@@ -15,7 +15,7 @@ RSpec.describe Base::PasswordsController do
         # rubocop:disable RSpec/AnyInstance
         allow_any_instance_of(Cognito::ForgotPassword).to receive(:forgot_password).and_return(true)
         # rubocop:enable RSpec/AnyInstance
-        post :create, params: { cognito_forgot_password: { email: email } }
+        post :create, params: { cognito_forgot_password: { email: } }
       end
 
       context 'when the email is invalid' do

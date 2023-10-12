@@ -4,12 +4,12 @@ RSpec.describe Cognito::SignUpUser do
   let(:sign_up_user) { described_class.new(params) }
 
   let(:params) do
-    { email: email,
-      password: password,
-      password_confirmation: password_confirmation,
-      summary_line: summary_line,
-      first_name: first_name,
-      last_name: last_name }
+    { email:,
+      password:,
+      password_confirmation:,
+      summary_line:,
+      first_name:,
+      last_name: }
   end
 
   let(:email) { 'test@test.com' }
@@ -252,7 +252,7 @@ RSpec.describe Cognito::SignUpUser do
       end
 
       context 'and it has been pwned' do
-        let(:password) { PwnedPassword.all.pluck(:password).sample }
+        let(:password) { PwnedPassword.pluck(:password).sample }
 
         it 'is not valid' do
           expect(sign_up_user.valid?).to be false

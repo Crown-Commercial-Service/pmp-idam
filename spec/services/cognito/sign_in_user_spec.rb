@@ -114,8 +114,7 @@ RSpec.describe Cognito::SignInUser do
         let(:explicit_auth_flows) { ['USER_PASSWORD_AUTH'] }
 
         before do
-          allow(user_pool_client).to receive(:client_id).and_return('supersecretkey2')
-          allow(user_pool_client).to receive(:client_secret).and_return('supersecretkey1')
+          allow(user_pool_client).to receive_messages(client_id: 'supersecretkey2', client_secret: 'supersecretkey1')
           allow(client).to receive(:initiate_auth).and_return(auth_response)
           sign_in_user.call
         end

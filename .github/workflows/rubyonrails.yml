@@ -29,10 +29,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Ruby and gems
-        uses: ruby/setup-ruby@v1.151.0
+        uses: ruby/setup-ruby@v1.154.0
         with:
           bundler-cache: true
 
@@ -46,7 +46,7 @@ jobs:
         run: bin/rake
 
       - name: publish code coverage
-        uses: paambaati/codeclimate-action@v4.0.0
+        uses: paambaati/codeclimate-action@v5.0.0
         with:
           debug: true
         if: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.ref == 'develop' }}
