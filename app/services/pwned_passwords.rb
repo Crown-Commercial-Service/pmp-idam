@@ -40,7 +40,7 @@ module PwnedPasswords
   def self.import_pwned_passwords
     insert_data = full_password_list
                   .select { |password| password.length >= 10 && TestPassword.new(password).valid? }
-                  .map { |password| { password: password } }
+                  .map { |password| { password: } }
 
     ActiveRecord::Base.logger.level = Logger::INFO
 

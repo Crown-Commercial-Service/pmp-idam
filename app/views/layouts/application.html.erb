@@ -25,7 +25,6 @@
 
   <meta property="og:image" content="<%= asset_pack_url('media/images/govuk-opengraph-image.png') %>">
 
-  <%= render partial: '/shared/google/analytics' if cookie_preferences_settings['google_analytics_enabled'] && PmpIdam.google_analytics_tracking_id.present? %>
   <%= render partial: '/shared/google/tag_manager_head' if PmpIdam.google_tag_manager_tracking_id.present? %>
 
   <%= canonical_tag %>
@@ -34,9 +33,9 @@
 <body class="govuk-template__body app-body-class" data-test="My value" data-other="report:details">
   <%= render partial: '/shared/google/tag_manager_body' if PmpIdam.google_tag_manager_tracking_id.present? %>
 
-  <script>
+  <%= javascript_tag nonce: true do -%>
     document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
-  </script>
+  <% end -%>
 
   <div id="wrapper">
     <a href="#main-content" class="govuk-skip-link">Skip to main content</a>

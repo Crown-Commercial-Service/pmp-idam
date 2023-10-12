@@ -5,10 +5,10 @@ RSpec.describe Cognito::ConfirmPasswordReset do
 
   let(:params) do
     {
-      email: email,
-      password: password,
-      password_confirmation: password_confirmation,
-      confirmation_code: confirmation_code
+      email:,
+      password:,
+      password_confirmation:,
+      confirmation_code:
     }
   end
 
@@ -107,7 +107,7 @@ RSpec.describe Cognito::ConfirmPasswordReset do
       end
 
       context 'and it has been pwned' do
-        let(:password) { PwnedPassword.all.pluck(:password).sample }
+        let(:password) { PwnedPassword.pluck(:password).sample }
 
         it 'is not valid' do
           expect(confirm_password_reset.valid?).to be false
@@ -198,8 +198,7 @@ RSpec.describe Cognito::ConfirmPasswordReset do
       allow(Aws::CognitoIdentityProvider::Client).to receive(:new).with(region: 'supersecretregion').and_return(client)
       allow(client).to receive(:admin_get_user).and_return(cognito_user)
       allow(cognito_user).to receive(:user_attributes).and_return([attribute_type])
-      allow(attribute_type).to receive(:name).and_return('sub')
-      allow(attribute_type).to receive(:value).and_return('my-cognito-id')
+      allow(attribute_type).to receive_messages(name: 'sub', value: 'my-cognito-id')
       allow(client).to receive(:admin_list_groups_for_user)
     end
 

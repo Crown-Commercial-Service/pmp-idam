@@ -24,7 +24,7 @@ Bundler.require(*Rails.groups)
 module PmpIdam
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.1
+    config.load_defaults 7.0
     # config.web_console.whitelisted_ips = ''
 
     # Settings in config/environments/* take precedence over those specified here.
@@ -59,23 +59,19 @@ module PmpIdam
     end
   end
 
-  def self.google_analytics_tracking_id
-    @google_analytics_tracking_id ||= ENV.fetch('GOOGLE_ANALYTICS_ID', nil)
-  end
-
   def self.google_tag_manager_tracking_id
     @google_tag_manager_tracking_id ||= ENV.fetch('GTM_TRACKING_ID', nil)
   end
 
   def self.cookie_settings_name
-    :pmp_cookie_options_v1
+    :cookie_preferences
   end
 
   def self.default_cookie_options
     {
       settings_viewed: false,
-      google_analytics_enabled: false,
-      glassbox_enabled: false
+      usage: false,
+      glassbox: false
     }.stringify_keys
   end
 end

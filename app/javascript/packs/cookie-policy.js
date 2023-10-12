@@ -2,24 +2,24 @@ import Cookies from "js-cookie";
 
 const cookieUpdateOptions = [
   {
-    cookieName: 'google_analytics_enabled',
+    cookieName: 'usage',
     cookiePrefixes: ['_ga', '_gi'],
   },
   {
-    cookieName: 'glassbox_enabled',
+    cookieName: 'glassbox',
     cookiePrefixes: ['_cls'],
   },
 ];
 
 const getCookiePreferences = () => {
-  const defaultCookieSettings = '{"google_analytics_enabled":true,"glassbox_enabled":false}';
+  const defaultCookieSettings = '{"usage":true,"glassbox":false}';
 
   return JSON.parse(Cookies.get('crown_marketplace_cookie_options_v1') || defaultCookieSettings);
 };
 
 const removeUnwantedCookies = () => {
   const cookieList = Object.keys(Cookies.get());
-  const cookiesToRemove = ['pmp_cookie_settings_viewed', 'pmp_google_analytics_enabled'];
+  const cookiesToRemove = ['pmp_cookie_settings_viewed', 'pmp_google_analytics_enabled', 'pmp_cookie_options_v1'];
   const cookiePreferences = getCookiePreferences();
   const cookiePrefixes = [];
 
