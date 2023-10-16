@@ -83,7 +83,7 @@ Rails.application.configure do
     'X-Content-Type-Options' => 'nosniff'
   }
 
-  ENV.fetch('ALLOWED_HOST_DOMAINS', []).split(',').each do |application_domain|
+  ENV.fetch('ALLOWED_HOST_DOMAINS', '').split(',').each do |application_domain|
     config.hosts << application_domain
   end
 end
