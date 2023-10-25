@@ -31,10 +31,12 @@ const passwordStrength = ($passwordField) => {
   });
 };
 
-$(() => {
+const initCpSignIn = () => {
   if ($('#passwordrules').length) {
     const passwordID = $('#password_id').val();
 
     passwordStrength($(`#${passwordID}`));
   }
-});
+}
+
+export { initCpSignIn }

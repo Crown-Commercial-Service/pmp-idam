@@ -33,7 +33,7 @@ RSpec.describe HomeController do
         cookies[cookie_name] = { value: 'test_cookie', domain: '.crowncommercial.gov.uk', path: '/' }
       end
 
-      get :update_cookie_settings, params: update_params
+      put :update_cookie_settings, params: update_params
     end
 
     context 'when enableing the ga cookies and disableing the glassbox cookies' do
