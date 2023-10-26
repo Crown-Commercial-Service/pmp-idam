@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/', to: 'home#index', as: :home
   get '/accessibility-statement', to: 'home#accessibility_statement'
   get '/cookie-settings', to: 'home#cookie_settings'
-  put '/cookie-settings/update', to: 'home#update_cookie_settings'
+  get '/cookie-settings/update', to: 'home#update_cookie_settings'
   get '/cookie-policy', to: 'home#cookie_policy'
 
   # API endpoints here
