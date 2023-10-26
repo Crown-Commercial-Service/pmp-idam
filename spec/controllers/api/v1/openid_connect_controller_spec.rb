@@ -63,7 +63,7 @@ RSpec.describe Api::V1::OpenidConnectController do
       end
 
       context 'when it cannot find the client call' do
-        before { get :token, params: { code: client_call_id } }
+        before { post :token, params: { code: client_call_id } }
 
         it 'responds with code has expired' do
           expect(response.body).to eq('Code has expired')
@@ -76,7 +76,7 @@ RSpec.describe Api::V1::OpenidConnectController do
 
         before do
           client_call
-          get :token, params: { code: client_call_id }
+          post :token, params: { code: client_call_id }
         end
 
         context 'when the nonce is nil' do
