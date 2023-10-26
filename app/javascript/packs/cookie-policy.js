@@ -40,7 +40,7 @@ const removeGACookies = (cookieBannerFormData, successFunction, failureFunction)
   let success = false
 
   $.ajax({
-    type: 'PUT',
+    type: 'GET',
     url: '/cookie-settings/update',
     data: cookieBannerFormData,
     dataType: 'json',
