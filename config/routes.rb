@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/cookie-settings', to: 'home#cookie_settings'
   get '/cookie-settings/update', to: 'home#update_cookie_settings'
   get '/cookie-policy', to: 'home#cookie_policy'
+  get '/health_check', to: 'health_check#index'
 
   # API endpoints here
   namespace :api do
