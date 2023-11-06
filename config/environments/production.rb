@@ -37,6 +37,12 @@ Rails.application.configure do
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   config.force_ssl = true
 
+  config.ssl_options = {
+    redirect: {
+      exclude: ->(request) { request.path.include?('health_check') }
+    }
+  }
+
   # Log to STDOUT by default
   config.logger = ActiveSupport::Logger.new(STDOUT)
     .tap  { |logger| logger.formatter = ::Logger::Formatter.new }
@@ -84,4 +90,8 @@ Rails.application.configure do
   ENV.fetch('ALLOWED_HOST_DOMAINS', '').split(',').each do |application_domain|
     config.hosts << application_domain
   end
+
+  config.host_authorization = {
+    exclude: ->(request) { request.path.include?('health_check') }
+  }
 end
