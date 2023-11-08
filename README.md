@@ -1,8 +1,15 @@
 # Print Marketplace IDAM
 
-[![Build Status](https://app.travis-ci.com/Crown-Commercial-Service/pmp-idam.svg?branch=develop)](https://app.travis-ci.com/Crown-Commercial-Service/pmp-idam)
+[![Test Status](https://github.com/Crown-Commercial-Service/pmp-idam/actions/workflows/test.yml/badge.svg)](https://github.com/Crown-Commercial-Service/pmp-idam/actions/workflows/test.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/0cd357c324b2731fb1bc/maintainability)](https://codeclimate.com/github/Crown-Commercial-Service/pmp-idam/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/0cd357c324b2731fb1bc/test_coverage)](https://codeclimate.com/github/Crown-Commercial-Service/pmp-idam/test_coverage)
+
+**Deployments**
+| Environment     | Deployment status                                                                                                                                         |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Development     | ![Latest Development deployment](https://github.com/Crown-Commercial-Service/pmp-idam/actions/workflows/setup_deployment.yml/badge.svg?branch=develop)    |
+| Pre-Production  | ![Latest Pre-Production deployment](https://github.com/Crown-Commercial-Service/pmp-idam/actions/workflows/setup_deployment.yml/badge.svg?branch=staging) |
+| Production      | ![Latest Production deployment](https://github.com/Crown-Commercial-Service/pmp-idam/actions/workflows/setup_deployment.yml/badge.svg?branch=main)        |
 
 ## Prerequisites
 
