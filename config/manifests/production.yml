@@ -13,3 +13,4 @@ applications:
     - logit-ssl-drain
   env:
     SERVER_ENV_NAME: production
+    NODE_OPTIONS: --openssl-legacy-provider 

@@ -12,3 +12,4 @@ applications:
     - ccs-pmp-idam-preprod-s3
   env:
     SERVER_ENV_NAME: preprod
+    NODE_OPTIONS: --openssl-legacy-provider 

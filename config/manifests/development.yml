@@ -12,3 +12,4 @@ applications:
     - ccs-pmp-idam-dev-s3
   env:
     SERVER_ENV_NAME: develop
+    NODE_OPTIONS: --openssl-legacy-provider 

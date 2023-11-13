@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/cookie-settings', to: 'home#cookie_settings'
   get '/cookie-settings/update', to: 'home#update_cookie_settings'
   get '/cookie-policy', to: 'home#cookie_policy'
+  get '/health_check', to: 'health_check#index'
 
   # API endpoints here
   namespace :api do
@@ -31,13 +32,12 @@ Rails.application.routes.draw do
     post '/sign-in', to: 'sessions#create', as: :user_session
     get '/users/forgot-password', to: 'passwords#new', as: :new_user_password
     post '/users/password', to: 'passwords#create'
-    get '/users/forgot-password-confirmation', to: 'passwords#confirm_new', as: :confirm_new_user_password
     get '/users/password', to: 'passwords#edit', as: :edit_user_password
     put '/users/password', to: 'passwords#update'
-    get '/users/password-reset-success', to: 'passwords#password_reset_success', as: :password_reset_success
   end
 
   get '/404', to: 'errors#not_found'
   get '/422', to: 'errors#unacceptable'
   get '/500', to: 'errors#internal_error'
+  get '/503', '/service-unavailable', to: 'errors#service_unavailable'
 end
