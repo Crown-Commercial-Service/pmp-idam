@@ -20,12 +20,12 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h2 class="govuk-heading-m govuk-!-margin-top-6 govuk-!-margin-bottom-2 pm-font-weight-semi-bold">
+    <h2 class="govuk-heading-m govuk-!-margin-top-6 govuk-!-margin-bottom-2">
       <%= t('.before_you_start') %>
     </h2>
     <p class="govuk-body">
       <%= t('.to_use_this_service_html', authorised_customer_list: link_to(t('.authorised_customer_list'), t('.authorised_customer_list_link'), title: t('.authorised_customer_list_title'), class: 'govuk-link govuk-link--no-visited-state')) %>    
     </p>
-    <%= link_to t('.sign_in'), ENV['PRINT_MARKET_PLACE_KEYCLOAK_URL'], title: t('.sign_in_title'), class: 'govuk-button'%>
+    <%= govuk_button(t('.sign_in'), href: ENV['PRINT_MARKET_PLACE_KEYCLOAK_URL']) %>
   </div>
 </div>

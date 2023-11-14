@@ -3,10 +3,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.2.1'
+ruby '3.2.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 7.0.8'
+gem 'rails', '~> 7.1.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.6'
 # Use Puma as the app server
@@ -24,18 +24,18 @@ gem 'aws-sdk-cognitoidentityprovider', '~> 1.82.0'
 # importing creds
 gem 'aws-sdk-s3', '~> 1'
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '~> 1.16.0', '>= 1.16.0', require: false
+gem 'bootsnap', '~> 1.17.0', require: false
 
 # For scheduling tasks
 gem 'arask', '~> 1.2.3'
 
 # for postgresql
-gem 'activerecord-postgis-adapter', '~> 8.0.3'
+gem 'activerecord-postgis-adapter', '~> 9.0.1'
 gem 'pg', '~> 1.5.4'
 # remove if not option two taken in project
 gem 'jwt', '~> 2.7.1'
 gem 'rest-client', '~> 2.1'
-gem 'rollbar', '~> 3.4.0'
+gem 'rollbar', '~> 3.4.1'
 gem 'roo', '~> 2.10.0'
 # remove if not option two taken in project
 
@@ -43,21 +43,24 @@ gem 'roo', '~> 2.10.0'
 gem 'canonical-rails', github: 'jumph4x/canonical-rails'
 
 # For environment variables
-gem 'aws-sdk-ssm', '~> 1.158.0'
+gem 'aws-sdk-ssm', '~> 1.159.0'
 
 # Add rate limiting on the API
 gem 'rack-attack', '~> 6.7.0'
+
+# GOV.UK Frontend helpers
+gem 'ccs-frontend_helpers', '~> 0.1.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', '~> 11.1.3', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails', '~> 2.8.1', '>= 2.8.1'
-  gem 'i18n-tasks', '~> 1.0.12', '>= 1.0.12'
+  gem 'i18n-tasks', '~> 1.0.13'
   gem 'rspec-rails', '~> 6.0.3', '>= 6.0.3'
-  gem 'rubocop', '~> 1.56.4'
+  gem 'rubocop', '~> 1.57.2'
   gem 'rubocop-performance', '~> 1.19.1'
-  gem 'rubocop-rails', '~> 2.21.2'
-  gem 'rubocop-rspec', '~> 2.24.1' # or gem 'rubocop-minitest'
+  gem 'rubocop-rails', '~> 2.22.1'
+  gem 'rubocop-rspec', '~> 2.25.0' # or gem 'rubocop-minitest'
   gem 'brakeman', '~> 6.0.1'
 end
 
