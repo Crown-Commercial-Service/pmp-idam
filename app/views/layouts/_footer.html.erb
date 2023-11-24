@@ -1,7 +1,7 @@
 <%= render partial: '/layouts/contact_us' %>
 <%= ccs_footer(
   meta: {
-    items: unless current_page?(controller: 'errors', action: 'service_unavailable')
+    items: unless current_page?(service_unavailable_path)
       [
         {
           text: t('.cookie_policy_link'),
