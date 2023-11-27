@@ -6,7 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.2.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 7.1.1'
+gem 'rails', '~> 7.1.2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.6'
 # Use Puma as the app server
@@ -43,13 +43,13 @@ gem 'roo', '~> 2.10.0'
 gem 'canonical-rails', github: 'jumph4x/canonical-rails'
 
 # For environment variables
-gem 'aws-sdk-ssm', '~> 1.159.0'
+gem 'aws-sdk-ssm', '~> 1.160.0'
 
 # Add rate limiting on the API
 gem 'rack-attack', '~> 6.7.0'
 
 # GOV.UK Frontend helpers
-gem 'ccs-frontend_helpers', '~> 0.1.1'
+gem 'ccs-frontend_helpers', '~> 0.1.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -69,7 +69,7 @@ group :development do
   gem 'listen', '~> 3.8'
   gem 'web-console', '~> 4.2.1'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring', '~> 4.1.1'
+  gem 'spring', '~> 4.1.2'
   gem 'spring-watcher-listen', '~> 2.1.0'
 end
 
