@@ -71,7 +71,7 @@ module PmpIdam
   end
 
   def self.cookie_settings_name
-    :cookie_preferences
+    :cookie_preferences_pmp
   end
 
   def self.default_cookie_options
