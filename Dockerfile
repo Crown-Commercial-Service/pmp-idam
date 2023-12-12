@@ -5,10 +5,10 @@ ARG NODE_VERSION=20.10.0
 ARG RUBY_VERSION=3.2.2
 
 # Pull in the nodejs image
-FROM node:${NODE_VERSION}-alpine3.18 AS node
+FROM node:${NODE_VERSION}-alpine3.19 AS node
 
 # Pull in the ruby image
-FROM ruby:${RUBY_VERSION}-alpine3.18
+FROM ruby:${RUBY_VERSION}-alpine3.19
 
 # As this is a multistage Docker image build
 # we will pull in the contents from the previous node image build stage
@@ -39,6 +39,11 @@ COPY Gemfile Gemfile.lock ./
 
 # Build application
 RUN gem install bundler && bundle install --jobs 4 --retry 5 && bundle clean --force
+
+# Recompile sqlite3 gem, fixes an issue with Alpine 3.19 where
+# sqlite3_native.so cannot be loaded due to missing symbols
+RUN gem uninstall sqlite3
+RUN gem install sqlite3 --platform=ruby
 
 RUN NODE_OPTIONS=--openssl-legacy-provider rake assets:precompile
 
