@@ -5,12 +5,12 @@ const grantType = {
   notGranted: 'not granted'
 }
 
-const getCookiePreferences = () => Cookies.get('cookie_preferences') ?? '{}'
+const getCookiePreferences = () => Cookies.get('cookie_preferences_pmp') ?? '{}'
 
-const getCookiePreferencesSaved = () => Cookies.get('cookie_preferences_saved') ?? '{}'
+const getCookiePreferencesSaved = () => Cookies.get('cookie_preferences_pmp_saved') ?? '{}'
 
 const setCookiePreferencesSaved = (cookiePreferences) => {
-  Cookies.set('cookie_preferences_saved', JSON.stringify(cookiePreferences), { expires: 365 })
+  Cookies.set('cookie_preferences_pmp_saved', JSON.stringify(cookiePreferences), { expires: 365 })
 }
 
 const getGrantedText = (state) => state ? grantType.granted : grantType.notGranted
