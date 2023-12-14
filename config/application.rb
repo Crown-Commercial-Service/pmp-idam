@@ -54,14 +54,6 @@ module PmpIdam
         # Rails.logger.debug e
       end
 
-      Rails.application.credentials.config.each do |key, value|
-        next if key.to_s != ENV['SERVER_ENV_NAME'].to_s
-
-        value.each do |env_key, env_value|
-          ENV[env_key.to_s] = env_value.to_s
-        end
-      end
-
       config.exceptions_app = routes
     end
   end
