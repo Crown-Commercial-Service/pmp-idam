@@ -6,7 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.3.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 7.1.3'
+gem 'rails', '~> 7.1.3', '>= 7.1.3.4'
 # Use Puma as the app server
 gem 'puma', '~> 6.4'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -25,7 +25,7 @@ gem 'aws-sdk-s3', '~> 1'
 gem 'bootsnap', '~> 1.18.3', require: false
 
 # For scheduling tasks
-gem 'arask', '~> 1.2.3'
+gem 'arask', '~> 1.2.4'
 
 # for postgresql
 gem 'activerecord-postgis-adapter', '~> 9.0.2'
@@ -47,7 +47,7 @@ gem 'aws-sdk-ssm', '~> 1.168.0'
 gem 'rack-attack', '~> 6.7.0'
 
 # GOV.UK Frontend helpers
-gem 'ccs-frontend_helpers', '~> 0.3.0'
+gem 'ccs-frontend_helpers', '~> 0.4.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
