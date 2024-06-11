@@ -71,7 +71,6 @@ As much of the project uses external APIs you will need a .env.local file to acc
 
 There is no data that can be initialised but you will need to add your email domain to the `AllowedEmailDomain` model and some organisations to the Organisation. You can either create files and use the rake tasks found in `lib/tasks/allow_email_domain.rake` and `lib/tasks/organisations.rake` or add the data manually though the console.
 
-
 ## Environemnt variables
 This project uses environment variables which you will need to add to your .env.local file in the application. Below is a list of some of the environment variables and where to find them:
 - **COGNITO_CLIENT_ID** - Obtained from the "General settings > App clients" of the AWS Cognito User Pool
@@ -84,12 +83,18 @@ This project uses environment variables which you will need to add to your .env.
 - **PRINT_MARKET_PLACE_KEYCLOAK_URL** - `http://localhost:8080`
 
 ## Running the application
-To run the application use:
-```
-bundle exec rails s
-```
-This will then run the rails server on localhost:3000 but you will need to do some more setup before you can fully use and test the application.
 
+You can run the web application with:
+
+```shell
+bin/dev
+```
+
+This will:
+- bring up the web application on [localhost:3000](http://localhost:3000)
+- watch CSS and JavaScript assets for changes
+
+However, you will need to do some more setup before you can fully use and test the application.
 
 ## Using the application in the development environment
 ### Running Keycloak in the Docker container
