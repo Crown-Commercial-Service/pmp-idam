@@ -26,4 +26,26 @@ module ApplicationHelper
       !current_cookie_preferences.is_a?(Hash) || current_cookie_preferences.empty? ? PmpIdam.default_cookie_options : current_cookie_preferences
     end
   end
+
+  def password_strength(password_id)
+    ccs_password_strength(
+      password_id,
+      [
+        {
+          type: :length,
+          value: 10,
+          text: I18n.t('common.passten')
+        },
+        {
+          type: :uppercase,
+          text: I18n.t('common.passcap')
+        },
+        {
+          type: :number,
+          text: I18n.t('common.passnum')
+        }
+      ],
+      classes: 'govuk-!-margin-left-2'
+    )
+  end
 end
