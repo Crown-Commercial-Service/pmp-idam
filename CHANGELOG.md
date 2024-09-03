@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Removed
+
+- Remove Turbolinks as it is no longer supported ([PR 838](https://github.com/Crown-Commercial-Service/pmp-idam/pull/838))
+
+### Changed
+
+- Update ruby to v3.3.4 ([PR 837](https://github.com/Crown-Commercial-Service/pmp-idam/pull/837))
+
 ## [2.1.1] - 2024-08-22
 
 ### Security
