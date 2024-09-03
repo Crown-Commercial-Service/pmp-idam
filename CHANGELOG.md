@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Update ruby to v3.3.5 ([PR 839](https://github.com/Crown-Commercial-Service/pmp-idam/pull/839))
 - Update ruby to v3.3.4 ([PR 837](https://github.com/Crown-Commercial-Service/pmp-idam/pull/837))
 
 ## [2.1.1] - 2024-08-22
