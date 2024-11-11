@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Update ruby to v3.3.6 ([PR 932](https://github.com/Crown-Commercial-Service/pmp-idam/pull/932))
 - Update Node to LTS Jod (v22.11.0) ([PR 931](https://github.com/Crown-Commercial-Service/pmp-idam/pull/931))
 - Update alpine to v3.20 ([PR 841](https://github.com/Crown-Commercial-Service/pmp-idam/pull/841))
 - Update ruby to v3.3.5 ([PR 839](https://github.com/Crown-Commercial-Service/pmp-idam/pull/839))
