@@ -7,9 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Removed
-
-- Remove Turbolinks as it is no longer supported ([PR 838](https://github.com/Crown-Commercial-Service/pmp-idam/pull/838))
+## [2.2.0] - 2025-01-23
 
 ### Changed
 
@@ -20,6 +18,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update alpine to v3.20 ([PR 841](https://github.com/Crown-Commercial-Service/pmp-idam/pull/841))
 - Update ruby to v3.3.5 ([PR 839](https://github.com/Crown-Commercial-Service/pmp-idam/pull/839))
 - Update ruby to v3.3.4 ([PR 837](https://github.com/Crown-Commercial-Service/pmp-idam/pull/837))
+
+### Removed
+
+- Remove Turbolinks as it is no longer supported ([PR 838](https://github.com/Crown-Commercial-Service/pmp-idam/pull/838))
 
 ## [2.1.1] - 2024-08-22
 
