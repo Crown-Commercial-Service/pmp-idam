@@ -1,7 +1,10 @@
-require: 
+---
+plugins:
   - rubocop-performance
   - rubocop-rails
   - rubocop-rspec
+
+require: 
   - rubocop-rspec_rails
 
 AllCops:
@@ -83,6 +86,9 @@ Layout/EndOfLine:
 
 Layout/TrailingEmptyLines:
     Enabled: true
+
+Lint/UselessConstantScoping:
+    Enabled: false
 
 Metrics/AbcSize:
     Max: 25 # TODO: Restore to '20'
