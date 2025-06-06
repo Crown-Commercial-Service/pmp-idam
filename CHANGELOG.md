@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Use Bun to manage our assets ([PR 1082](https://github.com/Crown-Commercial-Service/pmp-idam/pull/1082))
 - Upgrade GOV.UK Frontend version to v5.10.0 ([PR 1112](https://github.com/Crown-Commercial-Service/pmp-idam/pull/1112))
 - Upgrade CCS Frontend version to v1.4.1 ([PR 1112](https://github.com/Crown-Commercial-Service/pmp-idam/pull/1112))
+- Upgrade Rails to v8.0.2.0 ([PR 1109](https://github.com/Crown-Commercial-Service/pmp-idam/pull/1109))
+- Replace Arask with Solid Queue ([PR 1109](https://github.com/Crown-Commercial-Service/pmp-idam/pull/1109))
 
 ## [2.2.1] - 2025-03-24
 
