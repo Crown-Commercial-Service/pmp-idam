@@ -1,6 +1,6 @@
 # Print Marketplace IDAM
 
-[![Test Status](https://github.com/Crown-Commercial-Service/pmp-idam/actions/workflows/test.yml/badge.svg)](https://github.com/Crown-Commercial-Service/pmp-idam/actions/workflows/test.yml)
+[![Test Status](https://github.com/Crown-Commercial-Service/pmp-idam/actions/workflows/pull_request_ci.yml/badge.svg)](https://github.com/Crown-Commercial-Service/pmp-idam/actions/workflows/pull_request_ci.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/0cd357c324b2731fb1bc/maintainability)](https://codeclimate.com/github/Crown-Commercial-Service/pmp-idam/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/0cd357c324b2731fb1bc/test_coverage)](https://codeclimate.com/github/Crown-Commercial-Service/pmp-idam/test_coverage)
 
