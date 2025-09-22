@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.1.0] - 2025-09-22
+
 ### Changed
 
 - Update CCS Frontend with the new CCS branding ([PR 1212](https://github.com/Crown-Commercial-Service/pmp-idam/pull/1212))
