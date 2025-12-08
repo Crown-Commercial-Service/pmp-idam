@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.2.0] - 2025-12-08
+
 ### Changed
 
 - Upgrade ruby version to v3.4.7 ([PR 1293](https://github.com/Crown-Commercial-Service/pmp-idam/pull/1293))
