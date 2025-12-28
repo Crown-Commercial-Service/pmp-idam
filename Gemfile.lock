@@ -114,7 +114,7 @@ GEM
     bindex (0.8.1)
     bootsnap (1.19.0)
       msgpack (~> 1.2)
-    brakeman (7.1.1)
+    brakeman (7.1.2)
       racc
     builder (3.3.0)
     byebug (12.0.0)
@@ -433,7 +433,7 @@ DEPENDENCIES
   aws-sdk-s3 (~> 1)
   aws-sdk-ssm (~> 1.207.0)
   bootsnap (~> 1.19.0)
-  brakeman (~> 7.1.1)
+  brakeman (~> 7.1.2)
   byebug (~> 12.0.0)
   canonical-rails!
   ccs-frontend_helpers (~> 3.3.0)
