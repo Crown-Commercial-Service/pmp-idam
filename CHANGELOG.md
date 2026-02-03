@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add flag to show GCA branding ([PR 1348](https://github.com/Crown-Commercial-Service/pmp-idam/pull/1348))
+
 ### Changed
 
 - Update GOV.UK Frontend and CCS Frontend ([PR 1335](https://github.com/Crown-Commercial-Service/pmp-idam/pull/1335))
