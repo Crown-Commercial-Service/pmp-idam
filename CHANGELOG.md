@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Update GOV.UK Frontend and CCS Frontend ([PR 1335](https://github.com/Crown-Commercial-Service/pmp-idam/pull/1335))
 - Updated content that references CCS to now reference GCA ([PR 1357](https://github.com/Crown-Commercial-Service/pmp-idam/pull/1357))
+- Update GOV.UK Frontend to v6 and CCS Frontend v3 ([PR 1393](https://github.com/Crown-Commercial-Service/pmp-idam/pull/1393))
 
 ## [3.2.1] - 2026-01-05
 
