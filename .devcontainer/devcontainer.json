@@ -1,0 +1,53 @@
+{
+  "name": "PMP IDAM",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  "remoteUser": "root",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "castwide.solargraph",
+        "rebornix.ruby",
+        "wingrunr21.vscode-ruby",
+        "kaiwood.endwise",
+        "hridoy.rails-snippets",
+        "bung87.rails",
+        "dbaeumer.vscode-eslint",
+        "stylelint.vscode-stylelint",
+        "eamodio.gitlens",
+        "GitHub.vscode-pull-request-github"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "solargraph.diagnostics": true,
+        "solargraph.autocomplete": true
+      }
+    }
+  },
+
+  "forwardPorts": [3000, 8080, 5432],
+
+  "portsAttributes": {
+    "3000": { "label": "Rails App", "onAutoForward": "openBrowser" },
+    "8080": { "label": "Keycloak", "onAutoForward": "notify" },
+    "5432": { "label": "PostgreSQL", "onAutoForward": "silent" }
+  },
+
+  "initializeCommand": "echo 'Starting build...'",
+  "onCreateCommand": "apk add --no-cache git postgresql-client",
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+
+  "remoteEnv": {
+    "RAILS_ENV": "development",
+    "BINDING": "0.0.0.0",
+    "PRINT_MARKET_PLACE_KEYCLOAK_URL": "http://keycloak:8080"
+  },
+
+  "hostRequirements": {
+    "cpus": 4,
+    "memory": "8gb",
+    "storage": "32gb"
+  }
+}
