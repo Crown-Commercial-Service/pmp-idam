@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Update CCS Frontend to v3.2.0 ([PR 1442](https://github.com/Crown-Commercial-Service/pmp-idam/pull/1442))
+- Remove the "use gca" flags ([PR 1442](https://github.com/Crown-Commercial-Service/pmp-idam/pull/1442))
+
 ## [3.3.0] - 2026-03-17
 
 ### Added
